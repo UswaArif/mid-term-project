@@ -10,27 +10,21 @@ using System.Windows.Forms;
 
 namespace ProjectMids
 {
-    public partial class Form1 : Form
+    public partial class Student : Form
     {
-        public Form1()
+        public Student()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Student_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void button11_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void backbtn_Click(object sender, EventArgs e)
-        {
-            Form student = new Student();
-            student.ShowDialog();
         }
     }
 }

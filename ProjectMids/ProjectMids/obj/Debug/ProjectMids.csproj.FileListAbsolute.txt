@@ -1,0 +1,11 @@
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\bin\Debug\ProjectMids.exe.config
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\bin\Debug\ProjectMids.exe
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\bin\Debug\ProjectMids.pdb
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.csproj.AssemblyReference.cache
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.Form1.resources
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.Properties.Resources.resources
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.csproj.GenerateResource.cache
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.csproj.CoreCompileInputs.cache
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.exe
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.pdb
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.Student.resources
