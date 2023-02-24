@@ -9,3 +9,4 @@ D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectM
 D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.exe
 D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.pdb
 D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.Student.resources
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.StudentAttendance.resources

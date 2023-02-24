@@ -46,6 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassAttendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassAttendance.Designer.cs">
+      <DependentUpon>ClassAttendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +149,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-horizontal-line-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\360_F_209648678_C2FAcJXTVoT0gdMT6dWtLO2XDy3nPLDR1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\concept-lms-connected-icons-232075202.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

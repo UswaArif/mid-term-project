@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace ProjectMids
 {
@@ -31,6 +32,12 @@ namespace ProjectMids
         {
             Form student = new Student();
             student.ShowDialog();
+        }
+
+        private void btnStudentAttendance_Click(object sender, EventArgs e)
+        {
+            Form stuAttendance = new StudentAttendance();
+            stuAttendance.ShowDialog();
         }
     }
 }

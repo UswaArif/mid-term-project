@@ -73,6 +73,16 @@ namespace ProjectMids.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _360_F_209648678_C2FAcJXTVoT0gdMT6dWtLO2XDy3nPLDR1 {
+            get {
+                object obj = ResourceManager.GetObject("360_F_209648678_C2FAcJXTVoT0gdMT6dWtLO2XDy3nPLDR1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap back_to_school {
             get {
                 object obj = ResourceManager.GetObject("back-to-school", resourceCulture);
@@ -86,6 +96,16 @@ namespace ProjectMids.Properties {
         internal static System.Drawing.Bitmap classroom {
             get {
                 object obj = ResourceManager.GetObject("classroom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap concept_lms_connected_icons_232075202 {
+            get {
+                object obj = ResourceManager.GetObject("concept-lms-connected-icons-232075202", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,6 +146,16 @@ namespace ProjectMids.Properties {
         internal static System.Drawing.Bitmap icons8_right_arrow_64 {
             get {
                 object obj = ResourceManager.GetObject("icons8-right-arrow-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap images {
+            get {
+                object obj = ResourceManager.GetObject("images", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
