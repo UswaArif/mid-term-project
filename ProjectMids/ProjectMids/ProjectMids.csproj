@@ -73,6 +73,9 @@
     <Compile Include="StudentAttendance.Designer.cs">
       <DependentUpon>StudentAttendance.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ClassAttendance.resx">
+      <DependentUpon>ClassAttendance.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
