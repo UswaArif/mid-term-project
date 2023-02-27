@@ -11,3 +11,10 @@ D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectM
 D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.Student.resources
 D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.StudentAttendance.resources
 D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.ClassAttendance.resources
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.Lookup.resources
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.Clo.resources
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.Rubric.resources
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.RubricLevel.resources
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.Assessment.resources
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.AssessmentComponent.resources
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.StudentResult.resources

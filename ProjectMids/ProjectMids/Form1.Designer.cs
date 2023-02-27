@@ -58,17 +58,17 @@ namespace ProjectMids
             this.btnResult = new System.Windows.Forms.Button();
             this.btnStudentAttendance = new System.Windows.Forms.Button();
             this.btnStudent = new System.Windows.Forms.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -90,7 +90,7 @@ namespace ProjectMids
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(258, 8);
+            this.label1.Location = new System.Drawing.Point(269, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(183, 37);
             this.label1.TabIndex = 0;
@@ -108,7 +108,7 @@ namespace ProjectMids
             this.panel2.Controls.Add(this.lblSystem);
             this.panel2.Location = new System.Drawing.Point(1, 55);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(121, 394);
+            this.panel2.Size = new System.Drawing.Size(121, 405);
             this.panel2.TabIndex = 3;
             // 
             // lblStudentManagement
@@ -117,7 +117,7 @@ namespace ProjectMids
             this.lblStudentManagement.AutoSize = true;
             this.lblStudentManagement.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStudentManagement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblStudentManagement.Location = new System.Drawing.Point(6, 173);
+            this.lblStudentManagement.Location = new System.Drawing.Point(6, 184);
             this.lblStudentManagement.Name = "lblStudentManagement";
             this.lblStudentManagement.Size = new System.Drawing.Size(90, 110);
             this.lblStudentManagement.TabIndex = 5;
@@ -159,9 +159,9 @@ namespace ProjectMids
             this.panel3.Controls.Add(this.lblStudentAttendance);
             this.panel3.Controls.Add(this.btnStudent);
             this.panel3.Controls.Add(this.lblStudentRecord);
-            this.panel3.Location = new System.Drawing.Point(146, 92);
+            this.panel3.Location = new System.Drawing.Point(128, 61);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(530, 346);
+            this.panel3.Size = new System.Drawing.Size(587, 388);
             this.panel3.TabIndex = 4;
             // 
             // lblRubricLevel
@@ -298,6 +298,7 @@ namespace ProjectMids
             this.btnRubricLevel.Text = "RubricLevel";
             this.btnRubricLevel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRubricLevel.UseVisualStyleBackColor = false;
+            this.btnRubricLevel.Click += new System.EventHandler(this.btnRubricLevel_Click);
             // 
             // btnComponent
             // 
@@ -313,6 +314,7 @@ namespace ProjectMids
             this.btnComponent.Text = "Component";
             this.btnComponent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnComponent.UseVisualStyleBackColor = false;
+            this.btnComponent.Click += new System.EventHandler(this.btnComponent_Click);
             // 
             // btnAssessment
             // 
@@ -328,6 +330,7 @@ namespace ProjectMids
             this.btnAssessment.Text = "Assessment";
             this.btnAssessment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAssessment.UseVisualStyleBackColor = false;
+            this.btnAssessment.Click += new System.EventHandler(this.btnAssessment_Click);
             // 
             // btnRubric
             // 
@@ -342,6 +345,7 @@ namespace ProjectMids
             this.btnRubric.TabIndex = 34;
             this.btnRubric.Text = "Rubric";
             this.btnRubric.UseVisualStyleBackColor = false;
+            this.btnRubric.Click += new System.EventHandler(this.btnRubric_Click);
             // 
             // btnCLO
             // 
@@ -356,6 +360,7 @@ namespace ProjectMids
             this.btnCLO.TabIndex = 32;
             this.btnCLO.Text = "CLO";
             this.btnCLO.UseVisualStyleBackColor = false;
+            this.btnCLO.Click += new System.EventHandler(this.btnCLO_Click);
             // 
             // btnClassAttendance
             // 
@@ -371,6 +376,7 @@ namespace ProjectMids
             this.btnClassAttendance.Text = "Attendance";
             this.btnClassAttendance.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClassAttendance.UseVisualStyleBackColor = false;
+            this.btnClassAttendance.Click += new System.EventHandler(this.btnClassAttendance_Click);
             // 
             // btnLookUp
             // 
@@ -385,6 +391,7 @@ namespace ProjectMids
             this.btnLookUp.TabIndex = 29;
             this.btnLookUp.Text = "LookUp";
             this.btnLookUp.UseVisualStyleBackColor = false;
+            this.btnLookUp.Click += new System.EventHandler(this.btnLookUp_Click);
             // 
             // btnResult
             // 
@@ -399,6 +406,7 @@ namespace ProjectMids
             this.btnResult.TabIndex = 28;
             this.btnResult.Text = "Result";
             this.btnResult.UseVisualStyleBackColor = false;
+            this.btnResult.Click += new System.EventHandler(this.btnResult_Click);
             // 
             // btnStudentAttendance
             // 
@@ -432,11 +440,22 @@ namespace ProjectMids
             this.btnStudent.UseVisualStyleBackColor = false;
             this.btnStudent.Click += new System.EventHandler(this.backbtn_Click);
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.LightGray;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(6, 15);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(115, 101);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 45;
+            this.pictureBox5.TabStop = false;
+            // 
             // pictureBox4
             // 
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox4.Image = global::ProjectMids.Properties.Resources.icons8_horizontal_line_16;
-            this.pictureBox4.Location = new System.Drawing.Point(3, 288);
+            this.pictureBox4.Location = new System.Drawing.Point(3, 299);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(120, 13);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -447,7 +466,7 @@ namespace ProjectMids
             // 
             this.pictureBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox6.Image = global::ProjectMids.Properties.Resources.icons8_horizontal_line_16;
-            this.pictureBox6.Location = new System.Drawing.Point(1, 149);
+            this.pictureBox6.Location = new System.Drawing.Point(1, 160);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(120, 13);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -464,26 +483,16 @@ namespace ProjectMids
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.LightGray;
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(6, 15);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(115, 101);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 45;
-            this.pictureBox5.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(715, 450);
+            this.ClientSize = new System.Drawing.Size(715, 461);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.MinimumSize = new System.Drawing.Size(623, 500);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -493,10 +502,10 @@ namespace ProjectMids
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }

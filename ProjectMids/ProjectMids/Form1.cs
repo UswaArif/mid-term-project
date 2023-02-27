@@ -39,5 +39,53 @@ namespace ProjectMids
             Form stuAttendance = new StudentAttendance();
             stuAttendance.ShowDialog();
         }
+
+        private void btnClassAttendance_Click(object sender, EventArgs e)
+        {
+            Form ClassAttend = new ClassAttendance();
+            ClassAttend.ShowDialog();
+        }
+
+        private void btnLookUp_Click(object sender, EventArgs e)
+        {
+            Form look = new Lookup();
+            look.ShowDialog();
+        }
+
+        private void btnCLO_Click(object sender, EventArgs e)
+        {
+            Form clo = new Clo();
+            clo.ShowDialog();
+        }
+
+        private void btnRubric_Click(object sender, EventArgs e)
+        {
+            Form rubric = new Rubric();
+            rubric.ShowDialog();
+        }
+
+        private void btnRubricLevel_Click(object sender, EventArgs e)
+        {
+            Form rubriclevel = new RubricLevel();
+            rubriclevel.ShowDialog();
+        }
+
+        private void btnAssessment_Click(object sender, EventArgs e)
+        {
+            Form assess = new Assessment();
+            assess.ShowDialog();
+        }
+
+        private void btnComponent_Click(object sender, EventArgs e)
+        {
+            Form assComp = new AssessmentComponent();
+            assComp.ShowDialog();
+        }
+
+        private void btnResult_Click(object sender, EventArgs e)
+        {
+            Form stu = new StudentResult();
+            stu.ShowDialog();
+        }
     }
 }

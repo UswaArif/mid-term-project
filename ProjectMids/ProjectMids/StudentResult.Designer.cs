@@ -1,7 +1,7 @@
 ﻿
 namespace ProjectMids
 {
-    partial class StudentAttendance
+    partial class StudentResult
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,14 @@ namespace ProjectMids
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentAttendance));
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentResult));
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -52,16 +53,21 @@ namespace ProjectMids
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.gvStudentAttendance = new System.Windows.Forms.DataGridView();
+            this.gvStudentResult = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.txtStudentID = new System.Windows.Forms.TextBox();
+            this.lblEvaluationDate = new System.Windows.Forms.Label();
+            this.txtRubricMeasurementId = new System.Windows.Forms.TextBox();
+            this.txtAssessmentComponentId = new System.Windows.Forms.TextBox();
+            this.txtStudentId = new System.Windows.Forms.TextBox();
+            this.lblRubricMeasurementId = new System.Windows.Forms.Label();
+            this.lblAssessmentComponentId = new System.Windows.Forms.Label();
             this.lblStudentId = new System.Windows.Forms.Label();
-            this.chkPresent = new System.Windows.Forms.CheckBox();
-            this.lblAttendanceStatus = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.errorProviderApp = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -69,8 +75,9 @@ namespace ProjectMids
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvStudentAttendance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvStudentResult)).BeginInit();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -78,26 +85,15 @@ namespace ProjectMids
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel3.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panel3.Controls.Add(this.pictureBox5);
             this.panel3.Controls.Add(this.pictureBox7);
             this.panel3.Controls.Add(this.pictureBox6);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(1, 56);
+            this.panel3.Controls.Add(this.pictureBox5);
+            this.panel3.Location = new System.Drawing.Point(1, 55);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(121, 394);
+            this.panel3.Size = new System.Drawing.Size(121, 405);
             this.panel3.TabIndex = 7;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.LightGray;
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(3, 18);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(115, 101);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 46;
-            this.pictureBox5.TabStop = false;
             // 
             // pictureBox7
             // 
@@ -141,6 +137,17 @@ namespace ProjectMids
             this.label3.Size = new System.Drawing.Size(0, 13);
             this.label3.TabIndex = 5;
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.LightGray;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(3, 15);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(115, 101);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 5;
+            this.pictureBox5.TabStop = false;
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -150,7 +157,7 @@ namespace ProjectMids
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.lblStudentMenu);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(1, 1);
+            this.panel1.Location = new System.Drawing.Point(1, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(712, 55);
             this.panel1.TabIndex = 6;
@@ -220,11 +227,11 @@ namespace ProjectMids
             this.lblStudentMenu.AutoSize = true;
             this.lblStudentMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStudentMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblStudentMenu.Location = new System.Drawing.Point(166, 7);
+            this.lblStudentMenu.Location = new System.Drawing.Point(200, 7);
             this.lblStudentMenu.Name = "lblStudentMenu";
-            this.lblStudentMenu.Size = new System.Drawing.Size(400, 37);
+            this.lblStudentMenu.Size = new System.Drawing.Size(332, 37);
             this.lblStudentMenu.TabIndex = 0;
-            this.lblStudentMenu.Text = "Attendance Record Menu";
+            this.lblStudentMenu.Text = "Student Result Menu";
             // 
             // pictureBox1
             // 
@@ -239,7 +246,7 @@ namespace ProjectMids
             // btnBack
             // 
             this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBack.Location = new System.Drawing.Point(628, 402);
+            this.btnBack.Location = new System.Drawing.Point(628, 413);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 36);
             this.btnBack.TabIndex = 11;
@@ -261,7 +268,7 @@ namespace ProjectMids
             this.tableLayoutPanel2.Controls.Add(this.btnSearch, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnDelete, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnInsert, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(128, 178);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(129, 198);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -328,86 +335,131 @@ namespace ProjectMids
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.Controls.Add(this.gvStudentAttendance);
-            this.panel4.Location = new System.Drawing.Point(128, 230);
+            this.panel4.Controls.Add(this.gvStudentResult);
+            this.panel4.Location = new System.Drawing.Point(129, 247);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(482, 220);
+            this.panel4.Size = new System.Drawing.Size(485, 213);
             this.panel4.TabIndex = 13;
             // 
-            // gvStudentAttendance
+            // gvStudentResult
             // 
-            this.gvStudentAttendance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvStudentAttendance.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gvStudentAttendance.Location = new System.Drawing.Point(0, 0);
-            this.gvStudentAttendance.Name = "gvStudentAttendance";
-            this.gvStudentAttendance.Size = new System.Drawing.Size(482, 220);
-            this.gvStudentAttendance.TabIndex = 0;
+            this.gvStudentResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvStudentResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gvStudentResult.Location = new System.Drawing.Point(0, 0);
+            this.gvStudentResult.Name = "gvStudentResult";
+            this.gvStudentResult.Size = new System.Drawing.Size(485, 213);
+            this.gvStudentResult.TabIndex = 0;
+            this.gvStudentResult.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvStudentResult_CellContentClick);
             // 
             // panel5
             // 
             this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.panel5.Controls.Add(this.txtStudentID);
+            this.panel5.Controls.Add(this.dateTimePicker1);
+            this.panel5.Controls.Add(this.lblEvaluationDate);
+            this.panel5.Controls.Add(this.txtRubricMeasurementId);
+            this.panel5.Controls.Add(this.txtAssessmentComponentId);
+            this.panel5.Controls.Add(this.txtStudentId);
+            this.panel5.Controls.Add(this.lblRubricMeasurementId);
+            this.panel5.Controls.Add(this.lblAssessmentComponentId);
             this.panel5.Controls.Add(this.lblStudentId);
-            this.panel5.Controls.Add(this.chkPresent);
-            this.panel5.Controls.Add(this.lblAttendanceStatus);
-            this.panel5.Location = new System.Drawing.Point(128, 80);
+            this.panel5.Location = new System.Drawing.Point(132, 61);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(485, 85);
-            this.panel5.TabIndex = 14;
+            this.panel5.Size = new System.Drawing.Size(581, 126);
+            this.panel5.TabIndex = 10;
             // 
-            // txtStudentID
+            // lblEvaluationDate
             // 
-            this.txtStudentID.Location = new System.Drawing.Point(129, 15);
-            this.txtStudentID.Name = "txtStudentID";
-            this.txtStudentID.Size = new System.Drawing.Size(100, 20);
-            this.txtStudentID.TabIndex = 9;
+            this.lblEvaluationDate.AutoSize = true;
+            this.lblEvaluationDate.Location = new System.Drawing.Point(283, 18);
+            this.lblEvaluationDate.Name = "lblEvaluationDate";
+            this.lblEvaluationDate.Size = new System.Drawing.Size(57, 26);
+            this.lblEvaluationDate.TabIndex = 8;
+            this.lblEvaluationDate.Text = "Evaluation\r\n Date:";
+            // 
+            // txtRubricMeasurementId
+            // 
+            this.txtRubricMeasurementId.Location = new System.Drawing.Point(144, 71);
+            this.txtRubricMeasurementId.Name = "txtRubricMeasurementId";
+            this.txtRubricMeasurementId.Size = new System.Drawing.Size(122, 20);
+            this.txtRubricMeasurementId.TabIndex = 7;
+            this.txtRubricMeasurementId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRubricMeasurementId_KeyPress);
+            this.txtRubricMeasurementId.Validating += new System.ComponentModel.CancelEventHandler(this.txtRubricMeasurementId_Validating);
+            // 
+            // txtAssessmentComponentId
+            // 
+            this.txtAssessmentComponentId.Location = new System.Drawing.Point(143, 40);
+            this.txtAssessmentComponentId.Name = "txtAssessmentComponentId";
+            this.txtAssessmentComponentId.Size = new System.Drawing.Size(122, 20);
+            this.txtAssessmentComponentId.TabIndex = 6;
+            this.txtAssessmentComponentId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAssessmentComponentId_KeyPress);
+            this.txtAssessmentComponentId.Validating += new System.ComponentModel.CancelEventHandler(this.txtAssessmentComponentId_Validating);
+            // 
+            // txtStudentId
+            // 
+            this.txtStudentId.Location = new System.Drawing.Point(144, 12);
+            this.txtStudentId.Name = "txtStudentId";
+            this.txtStudentId.Size = new System.Drawing.Size(122, 20);
+            this.txtStudentId.TabIndex = 5;
+            this.txtStudentId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStudentId_KeyPress);
+            this.txtStudentId.Validating += new System.ComponentModel.CancelEventHandler(this.txtStudentId_Validating);
+            // 
+            // lblRubricMeasurementId
+            // 
+            this.lblRubricMeasurementId.AutoSize = true;
+            this.lblRubricMeasurementId.Location = new System.Drawing.Point(12, 71);
+            this.lblRubricMeasurementId.Name = "lblRubricMeasurementId";
+            this.lblRubricMeasurementId.Size = new System.Drawing.Size(120, 13);
+            this.lblRubricMeasurementId.TabIndex = 3;
+            this.lblRubricMeasurementId.Text = "Rubric Measurement Id:";
+            // 
+            // lblAssessmentComponentId
+            // 
+            this.lblAssessmentComponentId.AutoSize = true;
+            this.lblAssessmentComponentId.Location = new System.Drawing.Point(11, 43);
+            this.lblAssessmentComponentId.Name = "lblAssessmentComponentId";
+            this.lblAssessmentComponentId.Size = new System.Drawing.Size(135, 13);
+            this.lblAssessmentComponentId.TabIndex = 2;
+            this.lblAssessmentComponentId.Text = "Assessment Component Id:";
             // 
             // lblStudentId
             // 
             this.lblStudentId.AutoSize = true;
-            this.lblStudentId.Location = new System.Drawing.Point(16, 18);
+            this.lblStudentId.Location = new System.Drawing.Point(11, 15);
             this.lblStudentId.Name = "lblStudentId";
-            this.lblStudentId.Size = new System.Drawing.Size(58, 13);
-            this.lblStudentId.TabIndex = 8;
-            this.lblStudentId.Text = "StudentID:";
+            this.lblStudentId.Size = new System.Drawing.Size(59, 13);
+            this.lblStudentId.TabIndex = 1;
+            this.lblStudentId.Text = "Student Id:";
             // 
-            // chkPresent
+            // dateTimePicker1
             // 
-            this.chkPresent.AutoSize = true;
-            this.chkPresent.Location = new System.Drawing.Point(132, 49);
-            this.chkPresent.Name = "chkPresent";
-            this.chkPresent.Size = new System.Drawing.Size(62, 17);
-            this.chkPresent.TabIndex = 7;
-            this.chkPresent.Text = "Present";
-            this.chkPresent.UseVisualStyleBackColor = true;
+            this.dateTimePicker1.Location = new System.Drawing.Point(344, 15);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 9;
             // 
-            // lblAttendanceStatus
+            // errorProviderApp
             // 
-            this.lblAttendanceStatus.AutoSize = true;
-            this.lblAttendanceStatus.Location = new System.Drawing.Point(16, 50);
-            this.lblAttendanceStatus.Name = "lblAttendanceStatus";
-            this.lblAttendanceStatus.Size = new System.Drawing.Size(98, 13);
-            this.lblAttendanceStatus.TabIndex = 6;
-            this.lblAttendanceStatus.Text = "Attendance Status:";
+            this.errorProviderApp.ContainerControl = this;
             // 
-            // StudentAttendance
+            // StudentResult
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(715, 450);
+            this.ClientSize = new System.Drawing.Size(715, 461);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
-            this.Name = "StudentAttendance";
-            this.Text = "StudentAttendance";
+            this.MinimumSize = new System.Drawing.Size(623, 500);
+            this.Name = "StudentResult";
+            this.Text = "StudentResult";
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -417,9 +469,10 @@ namespace ProjectMids
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gvStudentAttendance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvStudentResult)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -431,6 +484,7 @@ namespace ProjectMids
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -439,7 +493,6 @@ namespace ProjectMids
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblStudentMenu;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btnShow;
@@ -448,11 +501,16 @@ namespace ProjectMids
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.DataGridView gvStudentAttendance;
+        private System.Windows.Forms.DataGridView gvStudentResult;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.CheckBox chkPresent;
-        private System.Windows.Forms.Label lblAttendanceStatus;
-        private System.Windows.Forms.TextBox txtStudentID;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label lblEvaluationDate;
+        private System.Windows.Forms.TextBox txtRubricMeasurementId;
+        private System.Windows.Forms.TextBox txtAssessmentComponentId;
+        private System.Windows.Forms.TextBox txtStudentId;
+        private System.Windows.Forms.Label lblRubricMeasurementId;
+        private System.Windows.Forms.Label lblAssessmentComponentId;
         private System.Windows.Forms.Label lblStudentId;
+        private System.Windows.Forms.ErrorProvider errorProviderApp;
     }
 }
