@@ -44,7 +44,6 @@ namespace ProjectMids
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
-            this.txtStatus = new System.Windows.Forms.TextBox();
             this.txtRegNo = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblStatus = new System.Windows.Forms.Label();
@@ -59,6 +58,7 @@ namespace ProjectMids
             this.btnBack = new System.Windows.Forms.Button();
             this.errorProviderApp = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.cboStatus = new System.Windows.Forms.ComboBox();
             this.btnReset = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2.SuspendLayout();
@@ -246,16 +246,6 @@ namespace ProjectMids
             this.btnInsert.UseVisualStyleBackColor = false;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
-            // txtStatus
-            // 
-            this.txtStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtStatus.Location = new System.Drawing.Point(402, 82);
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(157, 20);
-            this.txtStatus.TabIndex = 13;
-            this.txtStatus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStatus_KeyPress);
-            this.txtStatus.Validating += new System.ComponentModel.CancelEventHandler(this.txtStatus_Validating);
-            // 
             // txtRegNo
             // 
             this.txtRegNo.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -391,7 +381,6 @@ namespace ProjectMids
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.08436F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.2072F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.549183F));
-            this.tableLayoutPanel1.Controls.Add(this.txtStatus, 4, 2);
             this.tableLayoutPanel1.Controls.Add(this.lblFirstName, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtRegNo, 4, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblLastName, 0, 1);
@@ -403,6 +392,7 @@ namespace ProjectMids
             this.tableLayoutPanel1.Controls.Add(this.txtLastName, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblEmail, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtContact, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.cboStatus, 4, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(28, 62);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -412,6 +402,19 @@ namespace ProjectMids
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(623, 126);
             this.tableLayoutPanel1.TabIndex = 11;
+            // 
+            // cboStatus
+            // 
+            this.cboStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.cboStatus.FormattingEnabled = true;
+            this.cboStatus.Items.AddRange(new object[] {
+            "Active",
+            "InActive"});
+            this.cboStatus.Location = new System.Drawing.Point(402, 81);
+            this.cboStatus.Name = "cboStatus";
+            this.cboStatus.Size = new System.Drawing.Size(157, 21);
+            this.cboStatus.TabIndex = 14;
+            this.cboStatus.Text = "Select Status";
             // 
             // btnReset
             // 
@@ -496,7 +499,6 @@ namespace ProjectMids
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnInsert;
-        private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.TextBox txtRegNo;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label lblStatus;
@@ -514,5 +516,6 @@ namespace ProjectMids
         private System.Windows.Forms.DataGridView gvStudent;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.ComboBox cboStatus;
     }
 }

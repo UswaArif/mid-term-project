@@ -13,9 +13,54 @@ namespace ProjectMids
 {
     public partial class StudentResult : Form
     {
+        public static List<int> rubriclevelId = new List<int>();
+        public static List<int> studentId = new List<int>();
+        public static List<int> ComponentId = new List<int>();
         public StudentResult()
         {
             InitializeComponent();
+        }
+
+        public static void GetStudentIdData()
+        {
+
+            var con = Configuration.getInstance().getConnection();
+            SqlCommand cmd1 = new SqlCommand("Select Id from Student where Status != 6", con);
+
+            SqlDataReader reader = cmd1.ExecuteReader();
+            while (reader.Read())
+            {
+                studentId.Add((int)reader["Id"]);
+            }
+            reader.Close();
+        }
+
+        public static void GetAssessmentComponentIdData()
+        {
+
+            var con = Configuration.getInstance().getConnection();
+            SqlCommand cmd1 = new SqlCommand("Select Id from AssessmentComponent", con);
+
+            SqlDataReader reader = cmd1.ExecuteReader();
+            while (reader.Read())
+            {
+                ComponentId.Add((int)reader["Id"]);
+            }
+            reader.Close();
+        }
+
+        public static void GetRubricLevelIdData()
+        {
+
+            var con = Configuration.getInstance().getConnection();
+            SqlCommand cmd1 = new SqlCommand("Select Id from RubricLevel", con);
+
+            SqlDataReader reader = cmd1.ExecuteReader();
+            while (reader.Read())
+            {
+                rubriclevelId.Add((int)reader["Id"]);
+            }
+            reader.Close();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -28,9 +73,9 @@ namespace ProjectMids
             var con = Configuration.getInstance().getConnection();
             SqlCommand cmd = new SqlCommand("Insert into StudentResult values (@StudentId, @AssessmentComponentId, @RubricMeasurementId, @EvaluationDate)", con);
 
-            cmd.Parameters.AddWithValue("@StudentId", txtStudentId.Text);
-            cmd.Parameters.AddWithValue("@AssessmentComponentId", txtAssessmentComponentId.Text);
-            cmd.Parameters.AddWithValue("@RubricMeasurementId", txtRubricMeasurementId.Text);
+            cmd.Parameters.AddWithValue("@StudentId", cboStudentId.Text);
+            cmd.Parameters.AddWithValue("@AssessmentComponentId", cboComponentId.Text);
+            cmd.Parameters.AddWithValue("@RubricMeasurementId", cboRubricLevel.Text);
             cmd.Parameters.AddWithValue("@EvaluationDate", dateTimePicker1.Value);
 
             cmd.ExecuteNonQuery();
@@ -40,18 +85,18 @@ namespace ProjectMids
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow item in this.gvStudentResult.SelectedRows)
+            /*foreach (DataGridViewRow item in this.gvStudentResult.SelectedRows)
             {
                 gvStudentResult.Rows.RemoveAt(item.Index);
             }
-            MessageBox.Show("Successfully Deleted");
+            MessageBox.Show("Successfully Deleted");*/
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             var con = Configuration.getInstance().getConnection();
             SqlCommand cmd = new SqlCommand("SELECT * From StudentResult WHERE StudentId LIKE @StudentId + '%'", con);
-            cmd.Parameters.AddWithValue("@StudentId", txtStudentId.Text);
+            cmd.Parameters.AddWithValue("@StudentId", cboStudentId.Text);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -64,9 +109,9 @@ namespace ProjectMids
         {
             var con = Configuration.getInstance().getConnection();
             SqlCommand cmd = new SqlCommand("Update StudentResult SET StudentId = @StudentId, AssessmentComponentId = @AssessmentComponentId, RubricMeasurementId = @RubricMeasurementId, EvaluationDate = @EvaluationDate WHERE @StudentId = StudentId", con);
-            cmd.Parameters.AddWithValue("@StudentId", txtStudentId.Text);
-            cmd.Parameters.AddWithValue("@AssessmentComponentId", txtAssessmentComponentId.Text);
-            cmd.Parameters.AddWithValue("@RubricMeasurementId", txtRubricMeasurementId.Text);
+            cmd.Parameters.AddWithValue("@StudentId", cboStudentId.Text);
+            cmd.Parameters.AddWithValue("@AssessmentComponentId", cboComponentId.Text);
+            cmd.Parameters.AddWithValue("@RubricMeasurementId", cboRubricLevel.Text);
             cmd.Parameters.AddWithValue("@EvaluationDate", dateTimePicker1.Value);
 
 
@@ -90,98 +135,81 @@ namespace ProjectMids
             {
                 DataGridViewRow row = this.gvStudentResult.Rows[e.RowIndex];
 
-                txtStudentId.Text = row.Cells["StudentId"].Value.ToString();
-                txtAssessmentComponentId.Text = row.Cells["AssessmentComponentId"].Value.ToString();
-                txtRubricMeasurementId.Text = row.Cells["RubricMeasurement"].Value.ToString();
+                cboStudentId.Text = row.Cells["StudentId"].Value.ToString();
+                cboComponentId.Text = row.Cells["AssessmentComponentId"].Value.ToString();
+                cboRubricLevel.Text = row.Cells["RubricMeasurementId"].Value.ToString();
                 dateTimePicker1.Text = row.Cells["EvaluationDate"].Value.ToString();
 
             }
         }
 
-        private void txtStudentId_Validating(object sender, CancelEventArgs e)
+        private void btnReset_Click_1(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtStudentId.Text))
+            try
             {
-                e.Cancel = true;
-                txtStudentId.Focus();
-                errorProviderApp.SetError(txtStudentId, "Student Id should not be left blank!");
+                foreach (Control c in tableLayoutPanel1.Controls)
+                {
+                    if (c is TextBox)
+                        ((TextBox)c).Clear();
+                }
+                foreach (Control c in tableLayoutPanel1.Controls)
+                {
+                    if (c is ComboBox)
+                    {
+                        ((ComboBox)c).Text = "";
+                    }
+                }
+                cboRubricLevel.Text = "1";
+                cboStudentId.Text = "1";
+                cboComponentId.Text = "1";
             }
-            else
+            catch (Exception ex)
             {
-                e.Cancel = false;
-                errorProviderApp.SetError(txtStudentId, "");
+                MessageBox.Show(ex.Message);
             }
         }
 
-        private void txtAssessmentComponentId_Validating(object sender, CancelEventArgs e)
+        private void StudentResult_Load(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtAssessmentComponentId.Text))
-            {
-                e.Cancel = true;
-                txtAssessmentComponentId.Focus();
-                errorProviderApp.SetError(txtAssessmentComponentId, "Assessment Component Id should not be left blank!");
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProviderApp.SetError(txtAssessmentComponentId, "");
-            }
-        }
+            GetStudentIdData();
+            GetRubricLevelIdData();
+            GetAssessmentComponentIdData();
 
-        private void txtRubricMeasurementId_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtRubricMeasurementId.Text))
-            {
-                e.Cancel = true;
-                txtRubricMeasurementId.Focus();
-                errorProviderApp.SetError(txtRubricMeasurementId, "Rubric Measurement Id should not be left blank!");
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProviderApp.SetError(txtRubricMeasurementId, "");
-            }
-        }
+            cboStudentId.DataSource = studentId;
+            cboRubricLevel.DataSource = rubriclevelId;
+            cboComponentId.DataSource = ComponentId;
 
-        private void txtStudentId_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == ((char)Keys.Back)) //The  character represents a backspace
-            {
-                e.Handled = false; //Do not reject the input
-            }
-            else
-            {
-                e.Handled = true; //Reject the input
-            }
-        }
+            List<object> uniqueStudentItems = new List<object>();
+            List<object> uniqueItems = new List<object>();
+            List<object> uniqueComponentId = new List<object>();
 
-        private void txtAssessmentComponentId_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == ((char)Keys.Back)) //The  character represents a backspace
+            foreach (object item in cboRubricLevel.Items)
             {
-                e.Handled = false; //Do not reject the input
+                if (!uniqueItems.Contains(item))
+                {
+                    uniqueItems.Add(item);
+                }
             }
-            else
-            {
-                e.Handled = true; //Reject the input
-            }
-        }
 
-        private void txtRubricMeasurementId_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == ((char)Keys.Back)) //The  character represents a backspace
+            foreach (object item in cboStudentId.Items)
             {
-                e.Handled = false; //Do not reject the input
+                if (!uniqueStudentItems.Contains(item))
+                {
+                    uniqueStudentItems.Add(item);
+                }
             }
-            else
+
+            foreach (object item in cboComponentId.Items)
             {
-                e.Handled = true; //Reject the input
+                if (!uniqueComponentId.Contains(item))
+                {
+                    uniqueComponentId.Add(item);
+                }
             }
-        }
 
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-
+            cboRubricLevel.DataSource = new BindingSource(uniqueItems, null);
+            cboStudentId.DataSource = new BindingSource(uniqueStudentItems, null);
+            cboComponentId.DataSource = new BindingSource(uniqueComponentId, null);
         }
     }
 }

@@ -47,7 +47,15 @@ namespace ProjectMids
                     cmd.Parameters.AddWithValue("@Contact", txtContact.Text);
                     cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
                     cmd.Parameters.AddWithValue("@RegistrationNumber", txtRegNo.Text);
-                    cmd.Parameters.AddWithValue("@Status", txtStatus.Text);
+                    if(cboStatus.Text == "Active")
+                    {
+                        cmd.Parameters.AddWithValue("@Status", 5);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@Status", 6);
+                    }
+                    
 
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Successfully saved");
@@ -116,7 +124,14 @@ namespace ProjectMids
                 cmd.Parameters.AddWithValue("@Contact", txtContact.Text);
                 cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
                 cmd.Parameters.AddWithValue("@RegistrationNumber", txtRegNo.Text);
-                cmd.Parameters.AddWithValue("@Status", txtStatus.Text);
+                if (cboStatus.Text == "Active")
+                {
+                    cmd.Parameters.AddWithValue("@Status", 5);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Status", 6);
+                }
 
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Successfully updated");
@@ -134,7 +149,15 @@ namespace ProjectMids
                 txtContact.Text = row.Cells["Contact"].Value.ToString();
                 txtEmail.Text = row.Cells["Email"].Value.ToString();
                 txtRegNo.Text = row.Cells["RegistrationNumber"].Value.ToString();
-                txtStatus.Text = row.Cells["Status"].Value.ToString();
+                if(row.Cells["Status"].Value.ToString() == "5")
+                {
+                    cboStatus.Text = "Active";
+                }
+                else
+                {
+                    cboStatus.Text = "InActive";
+                }
+                //txtStatus.Text = row.Cells["Status"].Value.ToString();
             }
         }
         private void txtFirstName_Validating(object sender, CancelEventArgs e)
@@ -218,22 +241,6 @@ namespace ProjectMids
             }
         }
 
-        private void txtStatus_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtStatus.Text))
-            {
-                e.Cancel = true;
-                txtStatus.Focus();
-                errorProviderApp.SetError(txtStatus, "Status should not be left blank!");
-            }
-
-            else
-            {
-                e.Cancel = false;
-                errorProviderApp.SetError(txtStatus, "");
-            }
-        }
-
         private void txtContact_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == ((char)Keys.Back)) //The  character represents a backspace
@@ -246,18 +253,6 @@ namespace ProjectMids
             }
             
             
-        }
-
-        private void txtStatus_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == '5' || e.KeyChar == '6' || e.KeyChar == ((char)Keys.Back)) //The  character represents a backspace
-            {
-                e.Handled = false; //Do not reject the input
-            }
-            else
-            {
-                e.Handled = true; //Reject the input
-            }
         }
 
         private void Student_Load(object sender, EventArgs e)
@@ -274,6 +269,14 @@ namespace ProjectMids
                     if (c is TextBox)
                         ((TextBox)c).Clear();
                 }
+                foreach (Control c in tableLayoutPanel1.Controls)
+                {
+                    if (c is ComboBox)
+                    {
+                        ((ComboBox)c).Text = "";
+                    }
+                }
+                cboStatus.Text = "Active";
             }
             catch(Exception ex)
             {

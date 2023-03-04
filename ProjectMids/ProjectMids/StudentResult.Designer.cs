@@ -49,14 +49,14 @@ namespace ProjectMids
             this.gvStudentResult = new System.Windows.Forms.DataGridView();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lblEvaluationDate = new System.Windows.Forms.Label();
-            this.txtRubricMeasurementId = new System.Windows.Forms.TextBox();
-            this.txtAssessmentComponentId = new System.Windows.Forms.TextBox();
-            this.txtStudentId = new System.Windows.Forms.TextBox();
             this.lblRubricMeasurementId = new System.Windows.Forms.Label();
             this.lblAssessmentComponentId = new System.Windows.Forms.Label();
             this.lblStudentId = new System.Windows.Forms.Label();
             this.errorProviderApp = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.cboRubricLevel = new System.Windows.Forms.ComboBox();
+            this.cboStudentId = new System.Windows.Forms.ComboBox();
+            this.cboComponentId = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -200,7 +200,7 @@ namespace ProjectMids
             this.btnReset.TabIndex = 14;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
-            
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click_1);
             // 
             // btnShow
             // 
@@ -312,36 +312,6 @@ namespace ProjectMids
             this.lblEvaluationDate.TabIndex = 8;
             this.lblEvaluationDate.Text = "Evaluation\r\n Date:";
             // 
-            // txtRubricMeasurementId
-            // 
-            this.txtRubricMeasurementId.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtRubricMeasurementId.Location = new System.Drawing.Point(427, 15);
-            this.txtRubricMeasurementId.Name = "txtRubricMeasurementId";
-            this.txtRubricMeasurementId.Size = new System.Drawing.Size(164, 20);
-            this.txtRubricMeasurementId.TabIndex = 7;
-            this.txtRubricMeasurementId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRubricMeasurementId_KeyPress);
-            this.txtRubricMeasurementId.Validating += new System.ComponentModel.CancelEventHandler(this.txtRubricMeasurementId_Validating);
-            // 
-            // txtAssessmentComponentId
-            // 
-            this.txtAssessmentComponentId.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtAssessmentComponentId.Location = new System.Drawing.Point(109, 56);
-            this.txtAssessmentComponentId.Name = "txtAssessmentComponentId";
-            this.txtAssessmentComponentId.Size = new System.Drawing.Size(164, 20);
-            this.txtAssessmentComponentId.TabIndex = 6;
-            this.txtAssessmentComponentId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAssessmentComponentId_KeyPress);
-            this.txtAssessmentComponentId.Validating += new System.ComponentModel.CancelEventHandler(this.txtAssessmentComponentId_Validating);
-            // 
-            // txtStudentId
-            // 
-            this.txtStudentId.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtStudentId.Location = new System.Drawing.Point(109, 15);
-            this.txtStudentId.Name = "txtStudentId";
-            this.txtStudentId.Size = new System.Drawing.Size(164, 20);
-            this.txtStudentId.TabIndex = 5;
-            this.txtStudentId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStudentId_KeyPress);
-            this.txtStudentId.Validating += new System.ComponentModel.CancelEventHandler(this.txtStudentId_Validating);
-            // 
             // lblRubricMeasurementId
             // 
             this.lblRubricMeasurementId.AutoSize = true;
@@ -391,10 +361,10 @@ namespace ProjectMids
             this.tableLayoutPanel1.Controls.Add(this.lblStudentId, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblEvaluationDate, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblAssessmentComponentId, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtRubricMeasurementId, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txtAssessmentComponentId, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtStudentId, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblRubricMeasurementId, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.cboRubricLevel, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.cboStudentId, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.cboComponentId, 1, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(45, 61);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
@@ -403,6 +373,36 @@ namespace ProjectMids
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(639, 110);
             this.tableLayoutPanel1.TabIndex = 14;
+            // 
+            // cboRubricLevel
+            // 
+            this.cboRubricLevel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.cboRubricLevel.FormattingEnabled = true;
+            this.cboRubricLevel.Location = new System.Drawing.Point(427, 14);
+            this.cboRubricLevel.Name = "cboRubricLevel";
+            this.cboRubricLevel.Size = new System.Drawing.Size(164, 21);
+            this.cboRubricLevel.TabIndex = 10;
+            this.cboRubricLevel.Text = "Select Level";
+            // 
+            // cboStudentId
+            // 
+            this.cboStudentId.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.cboStudentId.FormattingEnabled = true;
+            this.cboStudentId.Location = new System.Drawing.Point(109, 14);
+            this.cboStudentId.Name = "cboStudentId";
+            this.cboStudentId.Size = new System.Drawing.Size(164, 21);
+            this.cboStudentId.TabIndex = 11;
+            this.cboStudentId.Text = "Select Student Id";
+            // 
+            // cboComponentId
+            // 
+            this.cboComponentId.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.cboComponentId.FormattingEnabled = true;
+            this.cboComponentId.Location = new System.Drawing.Point(109, 55);
+            this.cboComponentId.Name = "cboComponentId";
+            this.cboComponentId.Size = new System.Drawing.Size(164, 21);
+            this.cboComponentId.TabIndex = 12;
+            this.cboComponentId.Text = "Select Component Id";
             // 
             // StudentResult
             // 
@@ -417,6 +417,7 @@ namespace ProjectMids
             this.MinimumSize = new System.Drawing.Size(623, 500);
             this.Name = "StudentResult";
             this.Text = "StudentResult";
+            this.Load += new System.EventHandler(this.StudentResult_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -452,14 +453,14 @@ namespace ProjectMids
         private System.Windows.Forms.DataGridView gvStudentResult;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label lblEvaluationDate;
-        private System.Windows.Forms.TextBox txtRubricMeasurementId;
-        private System.Windows.Forms.TextBox txtAssessmentComponentId;
-        private System.Windows.Forms.TextBox txtStudentId;
         private System.Windows.Forms.Label lblRubricMeasurementId;
         private System.Windows.Forms.Label lblAssessmentComponentId;
         private System.Windows.Forms.Label lblStudentId;
         private System.Windows.Forms.ErrorProvider errorProviderApp;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.ComboBox cboRubricLevel;
+        private System.Windows.Forms.ComboBox cboStudentId;
+        private System.Windows.Forms.ComboBox cboComponentId;
     }
 }
