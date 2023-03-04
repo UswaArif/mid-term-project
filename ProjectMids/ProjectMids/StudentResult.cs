@@ -178,5 +178,10 @@ namespace ProjectMids
                 e.Handled = true; //Reject the input
             }
         }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

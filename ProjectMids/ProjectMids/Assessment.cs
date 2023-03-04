@@ -51,15 +51,23 @@ namespace ProjectMids
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("SELECT * From Assessment WHERE Title LIKE @Title + '%'", con);
-            cmd.Parameters.AddWithValue("@Title", txtTitle.Text);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            gvAssessment.DataSource = dt;
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Successfully Searched");
+            if (string.IsNullOrEmpty(txtTitle.Text) == false)
+            {
+                var con = Configuration.getInstance().getConnection();
+                SqlCommand cmd = new SqlCommand("SELECT * From Assessment WHERE Title LIKE @Title + '%'", con);
+                cmd.Parameters.AddWithValue("@Title", txtTitle.Text);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                gvAssessment.DataSource = dt;
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Successfully Searched");
+            }
+
+            else
+            {
+                MessageBox.Show("Enter Title to Search.");
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -161,6 +169,34 @@ namespace ProjectMids
         }
 
         private void txtTotalMarks_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == ((char)Keys.Back)) //The  character represents a backspace
+            {
+                e.Handled = false; //Do not reject the input
+            }
+            else
+            {
+                e.Handled = true; //Reject the input
+            }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (Control c in tableLayoutPanel2.Controls)
+                {
+                    if (c is TextBox)
+                        ((TextBox)c).Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void txtWeightage_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == ((char)Keys.Back)) //The  character represents a backspace
             {

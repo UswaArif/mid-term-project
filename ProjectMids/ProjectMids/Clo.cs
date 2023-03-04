@@ -13,10 +13,12 @@ namespace ProjectMids
 {
     public partial class Clo : Form
     {
+        
         public Clo()
         {
             InitializeComponent();
         }
+
 
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -51,31 +53,47 @@ namespace ProjectMids
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("SELECT * From Clo WHERE Name LIKE @Name + '%'", con);
-            cmd.Parameters.AddWithValue("@Name", txtName.Text);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            gvCLO.DataSource = dt;
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Successfully Searched");
+            if (string.IsNullOrEmpty(txtName.Text) == false)
+            {
+                var con = Configuration.getInstance().getConnection();
+                SqlCommand cmd = new SqlCommand("SELECT * From Clo WHERE Name LIKE @Name + '%'", con);
+                cmd.Parameters.AddWithValue("@Name", txtName.Text);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                gvCLO.DataSource = dt;
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Successfully Searched");
+            }
+            else
+            {
+                MessageBox.Show("Enter CLO Name to Search.");
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
-                var con = Configuration.getInstance().getConnection();
-                SqlCommand cmd = new SqlCommand("Update Clo SET Name = @Name, DateCreated = @DateCreated, DateUpdated = @DateUpdated WHERE @Id = Id", con);
-                cmd.Parameters.AddWithValue("@Id", txtID.Text);
-                cmd.Parameters.AddWithValue("@Name", txtName.Text);
-                cmd.Parameters.AddWithValue("@DateCreated", dateTimePicker1.Value);
-                cmd.Parameters.AddWithValue("@DateUpdated", dateTimePicker2.Value);
+                if(string.IsNullOrEmpty(txtID.Text) == false)
+                {
+                    var con = Configuration.getInstance().getConnection();
+                    SqlCommand cmd = new SqlCommand("Update Clo SET Name = @Name, DateCreated = @DateCreated, DateUpdated = @DateUpdated WHERE @Id = Id", con);
+                    cmd.Parameters.AddWithValue("@Id", txtID.Text);
+                    cmd.Parameters.AddWithValue("@Name", txtName.Text);
+                    cmd.Parameters.AddWithValue("@DateCreated", dateTimePicker1.Value);
+                    cmd.Parameters.AddWithValue("@DateUpdated", dateTimePicker2.Value);
 
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Successfully updated");
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Successfully updated");
+                }
+                else
+                {
+                    MessageBox.Show("Enter CLO Id to Update.");
+                }
+
             }
+            
             
         }
 
@@ -117,7 +135,7 @@ namespace ProjectMids
             }
         }
 
-        private void txtID_Validating(object sender, CancelEventArgs e)
+        /*private void txtID_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtID.Text))
             {
@@ -130,7 +148,7 @@ namespace ProjectMids
                 e.Cancel = false;
                 errorProviderApp.SetError(txtID, "");
             }
-        }
+        }*/
 
         private void txtID_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -141,6 +159,27 @@ namespace ProjectMids
             else
             {
                 e.Handled = true; //Reject the input
+            }
+        }
+
+        private void Clo_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (Control c in tableLayoutPanel2.Controls)
+                {
+                    if (c is TextBox)
+                        ((TextBox)c).Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

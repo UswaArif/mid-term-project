@@ -13,9 +13,25 @@ namespace ProjectMids
 {
     public partial class Rubric : Form
     {
+        public static List<int> cloId = new List<int>();
         public Rubric()
         {
             InitializeComponent();
+        }
+
+        public static void GetCloIdData()
+        {
+
+            var con = Configuration.getInstance().getConnection();
+            SqlCommand cmd1 = new SqlCommand("Select Id from Clo", con);
+
+            SqlDataReader reader = cmd1.ExecuteReader();
+            while (reader.Read())
+            {
+                cloId.Add((int)reader["Id"]);
+            }
+            reader.Close();
+
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -25,41 +41,60 @@ namespace ProjectMids
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            if (ValidateChildren(ValidationConstraints.Enabled))
+            if (ValidateChildren(ValidationConstraints.Enabled) )
             {
                 var con = Configuration.getInstance().getConnection();
-                SqlCommand cmd = new SqlCommand("Insert into Rubric values (@Id, @Details, @CloId)", con);
+                SqlCommand cmd1 = new SqlCommand("Select COUNT(*) From Rubric where Id = @Id", con);
+                cmd1.Parameters.AddWithValue("@Id", txtID.Text);
+                int RubricIdCount = (int)cmd1.ExecuteScalar();
 
-                cmd.Parameters.AddWithValue("@Id", txtID.Text);
-                cmd.Parameters.AddWithValue("@Details", txtDetails.Text);
-                cmd.Parameters.AddWithValue("@CloId", txtCLOID.Text);
+                if (RubricIdCount > 0)
+                {
+                    // Display error message if CLO ID is not present in the CLO database
+                    MessageBox.Show("This Rubric Id has already present!");
+                }
 
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Successfully saved");
-            }
-            
+                else
+                {
+                    SqlCommand cmd = new SqlCommand("Insert into Rubric values (@Id, @Details, @CloId)", con);
+
+                    cmd.Parameters.AddWithValue("@Id", txtID.Text);
+                    cmd.Parameters.AddWithValue("@Details", txtDetails.Text);
+                    cmd.Parameters.AddWithValue("@CloId", cboCLoId.Text);
+
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Successfully saved");
+                }
+            }           
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow item in this.gvRubric.SelectedRows)
+            /*foreach (DataGridViewRow item in this.gvRubric.SelectedRows)
             {
                 gvRubric.Rows.RemoveAt(item.Index);
             }
-            MessageBox.Show("Successfully Deleted");
+            MessageBox.Show("Successfully Deleted");*/
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("SELECT * From Rubric WHERE Id LIKE @Id + '%'", con);
-            cmd.Parameters.AddWithValue("@Id", txtID.Text);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            gvRubric.DataSource = dt;
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Successfully Searched");
+            if (string.IsNullOrEmpty(txtID.Text) == false)
+            { 
+                var con = Configuration.getInstance().getConnection();
+                SqlCommand cmd = new SqlCommand("SELECT * From Rubric WHERE Id LIKE @Id + '%'", con);
+                cmd.Parameters.AddWithValue("@Id", txtID.Text);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                gvRubric.DataSource = dt;
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Successfully Searched");
+            }
+            else
+            {
+                MessageBox.Show("Enter Rubric Id to Search.");
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -67,13 +102,15 @@ namespace ProjectMids
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
                 var con = Configuration.getInstance().getConnection();
+
                 SqlCommand cmd = new SqlCommand("Update Rubric SET Id = @Id, Details = @Details, CloId= @CloId WHERE @Id = Id", con);
                 cmd.Parameters.AddWithValue("@Id", txtID.Text);
                 cmd.Parameters.AddWithValue("@Details", txtDetails.Text);
-                cmd.Parameters.AddWithValue("@CloId", txtCLOID.Text);
+                cmd.Parameters.AddWithValue("@CloId", cboCLoId.Text);
 
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Successfully updated");
+                
             }
         }
 
@@ -95,7 +132,7 @@ namespace ProjectMids
 
                 txtID.Text = row.Cells["Id"].Value.ToString();
                 txtDetails.Text = row.Cells["Details"].Value.ToString();
-                txtCLOID.Text = row.Cells["CloId"].Value.ToString();
+                cboCLoId.Text = row.Cells["CloId"].Value.ToString();
             }
         }
 
@@ -129,21 +166,6 @@ namespace ProjectMids
             }
         }
 
-        private void txtCLOID_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtCLOID.Text))
-            {
-                e.Cancel = true;
-                txtCLOID.Focus();
-                errorProviderApp.SetError(txtCLOID, "CloId should not be left blank!");
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProviderApp.SetError(txtCLOID, "");
-            }
-        }
-
         private void txtID_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == ((char)Keys.Back)) //The  character represents a backspace
@@ -156,21 +178,49 @@ namespace ProjectMids
             }
         }
 
-        private void txtCLOID_KeyPress(object sender, KeyPressEventArgs e)
+        private void btnReset_Click(object sender, EventArgs e)
         {
-            if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == ((char)Keys.Back)) //The  character represents a backspace
+            try
             {
-                e.Handled = false; //Do not reject the input
+                foreach (Control c in tableLayoutPanel2.Controls)
+                {
+                    if (c is TextBox)
+                        ((TextBox)c).Clear();
+                }
+
+                foreach (Control c in tableLayoutPanel2.Controls)
+                {
+                    if (c is ComboBox)
+                    {
+                        ((ComboBox)c).Text = "";
+                    }
+                }
+                cboCLoId.Text = "1";
             }
-            else
+            catch (Exception ex)
             {
-                e.Handled = true; //Reject the input
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void Rubric_Load(object sender, EventArgs e)
         {
+            GetCloIdData();
 
+            cboCLoId.Text = "Select CLO Id";
+            cboCLoId.DataSource = cloId;
+
+            List<object> uniqueItems = new List<object>();
+            foreach (object item in cboCLoId.Items)
+            {
+                if (!uniqueItems.Contains(item))
+                {
+                    uniqueItems.Add(item);
+                }
+            }
+
+            cboCLoId.DataSource = new BindingSource(uniqueItems, null);
         }
+
     }
 }

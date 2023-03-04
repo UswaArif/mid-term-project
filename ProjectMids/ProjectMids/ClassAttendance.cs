@@ -13,6 +13,8 @@ namespace ProjectMids
 {
     public partial class ClassAttendance : Form
     {
+        public static List<int> classId = new List<int>();
+        //public static int[] classId = new int[] { };
         public ClassAttendance()
         {
             InitializeComponent();
@@ -20,26 +22,52 @@ namespace ProjectMids
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("SELECT * From ClassAttendance WHERE AttendanceDate LIKE @AttendanceDate", con);
-            cmd.Parameters.AddWithValue("@RegistrationNumber", dateTimePicker1.Value);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            gvClassAttendance.DataSource = dt;
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Successfully Searched");
+            if (string.IsNullOrEmpty(txtAttendanceId.Text) == false)
+            {
+                var con = Configuration.getInstance().getConnection();
+                SqlCommand cmd = new SqlCommand("SELECT * From ClassAttendance WHERE Id LIKE @Id", con);
+                cmd.Parameters.AddWithValue("@Id", txtAttendanceId.Text);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                gvClassAttendance.DataSource = dt;
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Successfully Searched");
+            }
+            else
+            {
+                MessageBox.Show("Enter Attendance Id to Search.");
+            }
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
             var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("Insert into ClassAttendance values @AttendanceDate)", con);
+            SqlCommand cmd = new SqlCommand("Insert into ClassAttendance values (@AttendanceDate)", con);
             //string value = this.dateTimePicker1.Value.ToString("yyyyMMdd");
+            //cmd.Parameters.AddWithValue("@Id", txtAttendanceId.Text);
             cmd.Parameters.AddWithValue("@AttendanceDate", dateTimePicker1.Value);
             MessageBox.Show(dateTimePicker1.Value.ToString());
             cmd.ExecuteNonQuery();
             MessageBox.Show("Successfully saved");
+
+            
+            //classId.Add()
+        }
+
+        public static void GetUsersData()
+        {
+   
+            var con = Configuration.getInstance().getConnection();
+            SqlCommand cmd1 = new SqlCommand("Select Id from ClassAttendance", con);
+
+            SqlDataReader reader = cmd1.ExecuteReader();
+            while (reader.Read())
+            {
+                classId.Add((int)reader["Id"]);
+            }
+            reader.Close();
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -55,11 +83,12 @@ namespace ProjectMids
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("Update ClassAttendance SET AttendanceDate = @AttendanceDate WHERE @AttendanceDate = AttendanceDate", con);
-            cmd.Parameters.AddWithValue("@FirstName", dateTimePicker1.Value);
+            SqlCommand cmd = new SqlCommand("Update ClassAttendance SET AttendanceDate = @AttendanceDate WHERE @Id = Id", con);
+            cmd.Parameters.AddWithValue("@Id", txtAttendanceId.Text);
+            cmd.Parameters.AddWithValue("@AttendanceDate", dateTimePicker1.Value);
 
             cmd.ExecuteNonQuery();
-            MessageBox.Show("Successfully updated");
+            MessageBox.Show("Successfully Updated");
         }
 
         private void btnShow_Click(object sender, EventArgs e)
@@ -74,12 +103,51 @@ namespace ProjectMids
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void ClassAttendance_Load(object sender, EventArgs e)
         {
+            GetUsersData();
+        }
 
+        private void gvClassAttendance_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.gvClassAttendance.Rows[e.RowIndex];
+
+                txtAttendanceId.Text = row.Cells["Id"].Value.ToString();
+                dateTimePicker1.Text = row.Cells["AttendanceDate"].Value.ToString();
+            }
+        }
+
+        private void txtAttendanceId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == ((char)Keys.Back)) //The  character represents a backspace
+            {
+                e.Handled = false; //Do not reject the input
+            }
+            else
+            {
+                e.Handled = true; //Reject the input
+            }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (Control c in tableLayoutPanel2.Controls)
+                {
+                    if (c is TextBox)
+                        ((TextBox)c).Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -18,74 +18,101 @@ namespace ProjectMids
             InitializeComponent();
         }
 
+        private Form activeForm = null;
+        
+        private void OpenChildForm(Form childfrom)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            activeForm = childfrom;
+            childfrom.TopLevel = false;
+            childfrom.FormBorderStyle = FormBorderStyle.None;
+            childfrom.Dock = DockStyle.Fill;
+            panelChildForm.Controls.Add(childfrom);
+            panelChildForm.Tag = childfrom;
+            childfrom.BringToFront();
+            childfrom.Show();
+            
+
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult iExit;
+            try
+            {
+                iExit = MessageBox.Show("Confirm if you want to exit", "Student Result System",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(iExit == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+                    
+            }
+
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
-        private void backbtn_Click(object sender, EventArgs e)
-        {
-            Form student = new Student();
-            student.ShowDialog();
-        }
 
         private void btnStudentAttendance_Click(object sender, EventArgs e)
         {
-            Form stuAttendance = new StudentAttendance();
-            stuAttendance.ShowDialog();
+            OpenChildForm(new StudentAttendance());
         }
 
         private void btnClassAttendance_Click(object sender, EventArgs e)
         {
-            Form ClassAttend = new ClassAttendance();
-            ClassAttend.ShowDialog();
+            OpenChildForm(new ClassAttendance());
         }
 
         private void btnLookUp_Click(object sender, EventArgs e)
         {
-            Form look = new Lookup();
-            look.ShowDialog();
+            OpenChildForm(new Lookup());
         }
 
         private void btnCLO_Click(object sender, EventArgs e)
         {
-            Form clo = new Clo();
-            clo.ShowDialog();
+            OpenChildForm(new Clo());
         }
 
         private void btnRubric_Click(object sender, EventArgs e)
         {
-            Form rubric = new Rubric();
-            rubric.ShowDialog();
+            OpenChildForm(new Rubric());
         }
 
         private void btnRubricLevel_Click(object sender, EventArgs e)
         {
-            Form rubriclevel = new RubricLevel();
-            rubriclevel.ShowDialog();
+            OpenChildForm(new RubricLevel());
         }
 
         private void btnAssessment_Click(object sender, EventArgs e)
         {
-            Form assess = new Assessment();
-            assess.ShowDialog();
+            OpenChildForm(new Assessment());
         }
 
         private void btnComponent_Click(object sender, EventArgs e)
         {
-            Form assComp = new AssessmentComponent();
-            assComp.ShowDialog();
+            OpenChildForm(new AssessmentComponent());
         }
 
         private void btnResult_Click(object sender, EventArgs e)
         {
-            Form stu = new StudentResult();
-            stu.ShowDialog();
+            OpenChildForm(new StudentResult());
+        }
+
+        private void btnStudent_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Student());
         }
     }
 }

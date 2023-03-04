@@ -13,9 +13,25 @@ namespace ProjectMids
 {
     public partial class RubricLevel : Form
     {
+        public static List<int> rubricId = new List<int>();
         public RubricLevel()
         {
             InitializeComponent();
+        }
+
+        public static void GetRubricIdData()
+        {
+
+            var con = Configuration.getInstance().getConnection();
+            SqlCommand cmd1 = new SqlCommand("Select Id from Rubric", con);
+
+            SqlDataReader reader = cmd1.ExecuteReader();
+            while (reader.Read())
+            {
+                rubricId.Add((int)reader["Id"]);
+            }
+            reader.Close();
+
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -30,7 +46,7 @@ namespace ProjectMids
                 var con = Configuration.getInstance().getConnection();
                 SqlCommand cmd = new SqlCommand("Insert into RubricLevel values (@RubricId, @Details, @MeasurementLevel)", con);
 
-                cmd.Parameters.AddWithValue("@RubricId", txtRubricId.Text);
+                cmd.Parameters.AddWithValue("@RubricId", cboRubricId.Text);
                 cmd.Parameters.AddWithValue("@Details", txtDetails.Text);
                 cmd.Parameters.AddWithValue("@MeasurementLevel", txtMeasurementLevel.Text);
 
@@ -42,24 +58,33 @@ namespace ProjectMids
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow item in this.gvRubricLevel.SelectedRows)
+            /*foreach (DataGridViewRow item in this.gvRubricLevel.SelectedRows)
             {
                 gvRubricLevel.Rows.RemoveAt(item.Index);
             }
-            MessageBox.Show("Successfully Deleted");
+            MessageBox.Show("Successfully Deleted");*/
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("SELECT * From RubricLevel WHERE Id LIKE @Id + '%'", con);
-            cmd.Parameters.AddWithValue("@Id", txtID.Text);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            gvRubricLevel.DataSource = dt;
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Successfully Searched");
+            if (string.IsNullOrEmpty(txtID.Text) == false)
+            {
+                var con = Configuration.getInstance().getConnection();
+                SqlCommand cmd = new SqlCommand("SELECT * From RubricLevel WHERE Id LIKE @Id + '%'", con);
+                cmd.Parameters.AddWithValue("@Id", txtID.Text);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                gvRubricLevel.DataSource = dt;
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Successfully Searched");
+            }
+
+            else
+            {
+                MessageBox.Show("Enter Id to Search.");
+            }
+
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -69,7 +94,7 @@ namespace ProjectMids
                 var con = Configuration.getInstance().getConnection();
                 SqlCommand cmd = new SqlCommand("Update RubricLevel SET RubricId = @RubricId, Details = @Details, MeasurementLevel = @MeasurementLevel WHERE @Id = Id", con);
                 cmd.Parameters.AddWithValue("@Id", txtID.Text);
-                cmd.Parameters.AddWithValue("@RubricId", txtRubricId.Text);
+                cmd.Parameters.AddWithValue("@RubricId", cboRubricId.Text);
                 cmd.Parameters.AddWithValue("@Details", txtDetails.Text);
                 cmd.Parameters.AddWithValue("@MeasurementLevel", txtMeasurementLevel.Text);
 
@@ -96,24 +121,9 @@ namespace ProjectMids
                 DataGridViewRow row = this.gvRubricLevel.Rows[e.RowIndex];
 
                 txtID.Text = row.Cells["Id"].Value.ToString();
-                txtRubricId.Text = row.Cells["RubricId"].Value.ToString();
+                cboRubricId.Text = row.Cells["RubricId"].Value.ToString();
                 txtDetails.Text = row.Cells["Details"].Value.ToString();
                 txtMeasurementLevel.Text = row.Cells["MeasurementLevel"].Value.ToString();
-            }
-        }
-
-        private void txtRubricId_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtRubricId.Text))
-            {
-                e.Cancel = true;
-                txtRubricId.Focus();
-                errorProviderApp.SetError(txtRubricId, "Rubric Id should not be left blank!");
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProviderApp.SetError(txtRubricId, "");
             }
         }
 
@@ -159,17 +169,48 @@ namespace ProjectMids
             }
         }
 
-        private void txtRubricId_KeyPress(object sender, KeyPressEventArgs e)
+        private void btnReset_Click(object sender, EventArgs e)
         {
-            if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == ((char)Keys.Back)) //The  character represents a backspace
+            try
             {
-                e.Handled = false; //Do not reject the input
+                foreach (Control c in tableLayoutPanel2.Controls)
+                {
+                    if (c is TextBox)
+                        ((TextBox)c).Clear();
+                }
+
+                foreach (Control c in tableLayoutPanel1.Controls)
+                {
+                    if (c is ComboBox)
+                    {
+                        ((ComboBox)c).Text = "";
+                    }
+                }
+                cboRubricId.Text = "1";
             }
-            else
+            catch (Exception ex)
             {
-                e.Handled = true; //Reject the input
+                MessageBox.Show(ex.Message);
             }
         }
 
+        private void RubricLevel_Load(object sender, EventArgs e)
+        {
+            GetRubricIdData();
+            //cboAttendanceId.Text = "Select Rubric Id";
+            cboRubricId.DataSource = rubricId;
+
+            List<object> uniqueItems = new List<object>();
+            foreach (object item in cboRubricId.Items)
+            {
+                if (!uniqueItems.Contains(item))
+                {
+                    uniqueItems.Add(item);
+                }
+            }
+
+            cboRubricId.DataSource = new BindingSource(uniqueItems, null);
+
+        }
     }
 }

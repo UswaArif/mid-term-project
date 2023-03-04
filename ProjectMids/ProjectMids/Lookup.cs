@@ -23,42 +23,25 @@ namespace ProjectMids
             this.Close();
         }
 
-        private void btnInsert_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("SELECT * From Lookup WHERE Name LIKE @Name", con);
-            cmd.Parameters.AddWithValue("@RegistrationNumber", txtName.Text);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            gvLookup.DataSource = dt;
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Successfully Searched");
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            /*var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("Update Lookup SET Name = @First, LastName = @LastName, Contact = @Contact, Email = @Email, RegistrationNumber = @RegistrationNumber, Status = @Status WHERE @RegistrationNumber = RegistrationNumber", con);
-            cmd.Parameters.AddWithValue("@FirstName", txtFirstName.Text);
-            cmd.Parameters.AddWithValue("@LastName", txtLastName.Text);
-            cmd.Parameters.AddWithValue("@Contact", txtContact.Text);
-            cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
-            cmd.Parameters.AddWithValue("@RegistrationNumber", txtRegNo.Text);
-            cmd.Parameters.AddWithValue("@Status", txtStatus.Text);
-
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Successfully updated");*/
+            if (string.IsNullOrEmpty(txtName.Text) == false)
+            {
+                var con = Configuration.getInstance().getConnection();
+                SqlCommand cmd = new SqlCommand("SELECT * From Lookup WHERE Name LIKE @Name", con);
+                cmd.Parameters.AddWithValue("@Name", txtName.Text);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                gvLookup.DataSource = dt;
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Successfully Searched");
+            }
+            else
+            {
+                MessageBox.Show("Enter Name to Search.");
+            }
+                
         }
 
         private void btnShow_Click(object sender, EventArgs e)
@@ -77,9 +60,13 @@ namespace ProjectMids
             {
                 DataGridViewRow row = this.gvLookup.Rows[e.RowIndex];
 
-                txtName.Text = row.Cells["Name"].Value.ToString();
-                txtCatageory.Text = row.Cells["Catageory"].Value.ToString();
+                txtName.Text = row.Cells["Name"].Value.ToString();               
             }
+        }
+
+        private void lblStudentMenu_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

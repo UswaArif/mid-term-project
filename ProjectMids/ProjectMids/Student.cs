@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace ProjectMids
 {
@@ -25,22 +26,34 @@ namespace ProjectMids
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("Insert into Student values (@FirstName, @LastName, @Contact, @Email, @RegistrationNumber, @Status)", con);
-            if (ValidateChildren(ValidationConstraints.Enabled))
+            if (ValidateChildren(ValidationConstraints.Enabled) && ivalid_email(txtEmail.Text))
             {
-                cmd.Parameters.AddWithValue("@FirstName", txtFirstName.Text);
-                cmd.Parameters.AddWithValue("@LastName", txtLastName.Text);
-                cmd.Parameters.AddWithValue("@Contact", txtContact.Text);
-                cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
-                cmd.Parameters.AddWithValue("@RegistrationNumber", txtRegNo.Text);
-                cmd.Parameters.AddWithValue("@Status", txtStatus.Text);
+                var con = Configuration.getInstance().getConnection();
+                SqlCommand cmd1 = new SqlCommand("Select COUNT(*) from Student where RegistrationNumber = @RegistrationNumber", con);
+                cmd1.Parameters.AddWithValue("@RegistrationNumber", txtRegNo.Text);
 
-            
-                //MessageBox.Show(txtFirstName.Text, "Demo App - Message!");
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Successfully saved");
+                int count = (int)cmd1.ExecuteScalar();
+
+                if (count > 0)
+                {
+                    MessageBox.Show("This Student Registration Number has already been present!");
+                }
+
+                else
+                {
+                    SqlCommand cmd = new SqlCommand("Insert into Student values (@FirstName, @LastName, @Contact, @Email, @RegistrationNumber, @Status)", con);
+                    cmd.Parameters.AddWithValue("@FirstName", txtFirstName.Text);
+                    cmd.Parameters.AddWithValue("@LastName", txtLastName.Text);
+                    cmd.Parameters.AddWithValue("@Contact", txtContact.Text);
+                    cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
+                    cmd.Parameters.AddWithValue("@RegistrationNumber", txtRegNo.Text);
+                    cmd.Parameters.AddWithValue("@Status", txtStatus.Text);
+
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Successfully saved");
+                }
             }
+            
         }
 
         private void btnShow_Click(object sender, EventArgs e)
@@ -71,20 +84,30 @@ namespace ProjectMids
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("SELECT * From Student WHERE RegistrationNumber LIKE @RegistrationNumber + '%'", con);
-            cmd.Parameters.AddWithValue("@RegistrationNumber", txtRegNo.Text);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            gvStudent.DataSource = dt;
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Successfully Searched");
+            if (string.IsNullOrEmpty(txtRegNo.Text)== false)
+            {
+                var con = Configuration.getInstance().getConnection();
+                SqlCommand cmd = new SqlCommand("SELECT * From Student WHERE RegistrationNumber LIKE @RegistrationNumber + '%'", con);
+                cmd.Parameters.AddWithValue("@RegistrationNumber", txtRegNo.Text);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                gvStudent.DataSource = dt;
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Successfully Searched");
+            }
+
+            else
+            {
+                MessageBox.Show("Enter Registration number to Search.");
+            }
+                
+            
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (ValidateChildren(ValidationConstraints.Enabled))
+            if (ValidateChildren(ValidationConstraints.Enabled) && ivalid_email(txtEmail.Text))
             {
                 var con = Configuration.getInstance().getConnection();
                 SqlCommand cmd = new SqlCommand("Update Student SET FirstName = @FirstName, LastName = @LastName, Contact = @Contact, Email = @Email, RegistrationNumber = @RegistrationNumber, Status = @Status WHERE @RegistrationNumber = RegistrationNumber", con);
@@ -203,6 +226,7 @@ namespace ProjectMids
                 txtStatus.Focus();
                 errorProviderApp.SetError(txtStatus, "Status should not be left blank!");
             }
+
             else
             {
                 e.Cancel = false;
@@ -226,7 +250,7 @@ namespace ProjectMids
 
         private void txtStatus_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == '0' || e.KeyChar == '1' || e.KeyChar == ((char)Keys.Back)) //The  character represents a backspace
+            if (e.KeyChar == '5' || e.KeyChar == '6' || e.KeyChar == ((char)Keys.Back)) //The  character represents a backspace
             {
                 e.Handled = false; //Do not reject the input
             }
@@ -235,5 +259,43 @@ namespace ProjectMids
                 e.Handled = true; //Reject the input
             }
         }
+
+        private void Student_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach(Control c in tableLayoutPanel1.Controls)
+                {
+                    if (c is TextBox)
+                        ((TextBox)c).Clear();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public bool ivalid_email(string email)
+        {
+            Regex check = new Regex(@"^\w+[\w-\.]+\@\w{5}\.[a-z]{2,3}$");
+            bool valid = false;
+            valid = check.IsMatch(email);
+            if(valid == true)
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Email format is incorrect.");
+                return false;
+            }
+        }
+
     }
 }
