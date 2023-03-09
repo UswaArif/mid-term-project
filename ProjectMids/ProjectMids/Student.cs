@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace ProjectMids
 {
@@ -72,22 +75,58 @@ namespace ProjectMids
             DataTable dt = new DataTable();
             da.Fill(dt);
             gvStudent.DataSource = dt;
+
+            /*Document document = new Document(PageSize.A4,50,50,25,25);
+            PdfWriter writer = PdfWriter.GetInstance(document, new FileStream("file.pdf", FileMode.Create));
+
+            document.Open();
+            PdfPTable table = new PdfPTable(gvStudent.Columns.Count);
+            table.WidthPercentage = 100;
+            //table.SetWidths(new float[] { 1f, 2f, 2f, 3f });
+            // Add header column to the table
+            foreach(DataGridViewColumn column in gvStudent.Columns)
+            {
+                table.AddCell(column.HeaderText);
+            }
+
+            // Add data rows to the table
+            foreach(DataGridViewRow row in gvStudent.Rows)
+            {
+                foreach(DataGridViewCell cell in row.Cells)
+                {
+                    if(cell.Value != null)
+                    {
+                        table.AddCell(cell.Value.ToString());
+                    }
+                    else
+                    {
+                        table.AddCell(string.Empty);
+                    }
+                }
+            }
+
+            document.Add(table);
+
+            // Close the document
+            document.Close();*/
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            /*var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("DELETE FROM Student WHERE @RegistrationNumber = RegistrationNumber", con);
-            cmd.Parameters.AddWithValue("@RegistrationNumber", txtRegNo.Text);
-            
-            cmd.ExecuteNonQuery();*/
-
-            foreach (DataGridViewRow item in this.gvStudent.SelectedRows)
+            if (string.IsNullOrEmpty(txtRegNo.Text) == false)
             {
-                gvStudent.Rows.RemoveAt(item.Index);
+                var con = Configuration.getInstance().getConnection();
+                SqlCommand cmd = new SqlCommand("Update Student SET Status = 6 WHERE @RegistrationNumber = RegistrationNumber", con);
+                cmd.Parameters.AddWithValue("@RegistrationNumber", txtRegNo.Text);
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Successfully Deleted.");
             }
-            MessageBox.Show("Successfully Deleted");
-            //gvStudent.DataBind();
+            else
+            {
+                MessageBox.Show("Enter Registration number to Delete.");
+            }
+
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

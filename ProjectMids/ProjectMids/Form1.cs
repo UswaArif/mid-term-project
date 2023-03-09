@@ -114,5 +114,10 @@ namespace ProjectMids
         {
             OpenChildForm(new Student());
         }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ReportMenu());
+        }
     }
 }

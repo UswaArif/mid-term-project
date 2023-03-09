@@ -234,7 +234,7 @@ namespace ProjectMids
             // 
             // btnInsert
             // 
-            this.btnInsert.BackColor = System.Drawing.Color.Silver;
+            this.btnInsert.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnInsert.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInsert.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));

@@ -32,10 +32,8 @@ namespace ProjectMids
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblStudentManagement = new System.Windows.Forms.Label();
             this.lblSystem = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblStudentMenu = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -57,15 +55,21 @@ namespace ProjectMids
             this.cboRubricLevel = new System.Windows.Forms.ComboBox();
             this.cboStudentId = new System.Windows.Forms.ComboBox();
             this.cboComponentId = new System.Windows.Forms.ComboBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.gvRubricLevel = new System.Windows.Forms.DataGridView();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvStudentResult)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvRubricLevel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -95,17 +99,6 @@ namespace ProjectMids
             this.panel2.Size = new System.Drawing.Size(121, 394);
             this.panel2.TabIndex = 5;
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox3.Location = new System.Drawing.Point(10, 297);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(72, 35);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 5;
-            this.pictureBox3.TabStop = false;
-            // 
             // lblStudentManagement
             // 
             this.lblStudentManagement.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -127,16 +120,6 @@ namespace ProjectMids
             this.lblSystem.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblSystem.Size = new System.Drawing.Size(0, 13);
             this.lblSystem.TabIndex = 5;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.LightGray;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 15);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(115, 116);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
             // 
             // lblStudentMenu
             // 
@@ -181,7 +164,7 @@ namespace ProjectMids
             this.tableLayoutPanel2.Controls.Add(this.btnDelete, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnUpdate, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnSearch, 2, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(45, 177);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(45, 152);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -278,9 +261,9 @@ namespace ProjectMids
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.Controls.Add(this.gvStudentResult);
-            this.panel4.Location = new System.Drawing.Point(45, 226);
+            this.panel4.Location = new System.Drawing.Point(11, 198);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(550, 234);
+            this.panel4.Size = new System.Drawing.Size(351, 262);
             this.panel4.TabIndex = 13;
             // 
             // gvStudentResult
@@ -290,14 +273,14 @@ namespace ProjectMids
             this.gvStudentResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gvStudentResult.Location = new System.Drawing.Point(0, 0);
             this.gvStudentResult.Name = "gvStudentResult";
-            this.gvStudentResult.Size = new System.Drawing.Size(550, 234);
+            this.gvStudentResult.Size = new System.Drawing.Size(351, 262);
             this.gvStudentResult.TabIndex = 0;
             this.gvStudentResult.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvStudentResult_CellContentClick);
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(427, 56);
+            this.dateTimePicker1.Location = new System.Drawing.Point(427, 31);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(164, 20);
             this.dateTimePicker1.TabIndex = 9;
@@ -306,7 +289,7 @@ namespace ProjectMids
             // 
             this.lblEvaluationDate.AutoSize = true;
             this.lblEvaluationDate.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblEvaluationDate.Location = new System.Drawing.Point(321, 53);
+            this.lblEvaluationDate.Location = new System.Drawing.Point(321, 28);
             this.lblEvaluationDate.Name = "lblEvaluationDate";
             this.lblEvaluationDate.Size = new System.Drawing.Size(100, 26);
             this.lblEvaluationDate.TabIndex = 8;
@@ -316,7 +299,7 @@ namespace ProjectMids
             // 
             this.lblRubricMeasurementId.AutoSize = true;
             this.lblRubricMeasurementId.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblRubricMeasurementId.Location = new System.Drawing.Point(321, 12);
+            this.lblRubricMeasurementId.Location = new System.Drawing.Point(321, 0);
             this.lblRubricMeasurementId.Name = "lblRubricMeasurementId";
             this.lblRubricMeasurementId.Size = new System.Drawing.Size(100, 26);
             this.lblRubricMeasurementId.TabIndex = 3;
@@ -326,7 +309,7 @@ namespace ProjectMids
             // 
             this.lblAssessmentComponentId.AutoSize = true;
             this.lblAssessmentComponentId.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblAssessmentComponentId.Location = new System.Drawing.Point(3, 53);
+            this.lblAssessmentComponentId.Location = new System.Drawing.Point(3, 28);
             this.lblAssessmentComponentId.Name = "lblAssessmentComponentId";
             this.lblAssessmentComponentId.Size = new System.Drawing.Size(100, 26);
             this.lblAssessmentComponentId.TabIndex = 2;
@@ -336,7 +319,7 @@ namespace ProjectMids
             // 
             this.lblStudentId.AutoSize = true;
             this.lblStudentId.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblStudentId.Location = new System.Drawing.Point(3, 25);
+            this.lblStudentId.Location = new System.Drawing.Point(3, 13);
             this.lblStudentId.Name = "lblStudentId";
             this.lblStudentId.Size = new System.Drawing.Size(100, 13);
             this.lblStudentId.TabIndex = 1;
@@ -371,14 +354,14 @@ namespace ProjectMids
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.56097F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.43903F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(639, 110);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(639, 85);
             this.tableLayoutPanel1.TabIndex = 14;
             // 
             // cboRubricLevel
             // 
             this.cboRubricLevel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.cboRubricLevel.FormattingEnabled = true;
-            this.cboRubricLevel.Location = new System.Drawing.Point(427, 14);
+            this.cboRubricLevel.Location = new System.Drawing.Point(427, 3);
             this.cboRubricLevel.Name = "cboRubricLevel";
             this.cboRubricLevel.Size = new System.Drawing.Size(164, 21);
             this.cboRubricLevel.TabIndex = 10;
@@ -388,7 +371,7 @@ namespace ProjectMids
             // 
             this.cboStudentId.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.cboStudentId.FormattingEnabled = true;
-            this.cboStudentId.Location = new System.Drawing.Point(109, 14);
+            this.cboStudentId.Location = new System.Drawing.Point(109, 3);
             this.cboStudentId.Name = "cboStudentId";
             this.cboStudentId.Size = new System.Drawing.Size(164, 21);
             this.cboStudentId.TabIndex = 11;
@@ -398,17 +381,58 @@ namespace ProjectMids
             // 
             this.cboComponentId.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.cboComponentId.FormattingEnabled = true;
-            this.cboComponentId.Location = new System.Drawing.Point(109, 55);
+            this.cboComponentId.Location = new System.Drawing.Point(109, 30);
             this.cboComponentId.Name = "cboComponentId";
             this.cboComponentId.Size = new System.Drawing.Size(164, 21);
             this.cboComponentId.TabIndex = 12;
             this.cboComponentId.Text = "Select Component Id";
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.gvRubricLevel);
+            this.panel3.Location = new System.Drawing.Point(369, 204);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(315, 154);
+            this.panel3.TabIndex = 15;
+            // 
+            // gvRubricLevel
+            // 
+            this.gvRubricLevel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvRubricLevel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gvRubricLevel.Location = new System.Drawing.Point(0, 0);
+            this.gvRubricLevel.Name = "gvRubricLevel";
+            this.gvRubricLevel.Size = new System.Drawing.Size(315, 154);
+            this.gvRubricLevel.TabIndex = 0;
+            this.gvRubricLevel.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvRubricLevel_CellContentClick);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox3.Location = new System.Drawing.Point(10, 297);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(72, 35);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 5;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.LightGray;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 15);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(115, 116);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
             // 
             // StudentResult
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(696, 461);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.tableLayoutPanel2);
@@ -422,14 +446,16 @@ namespace ProjectMids
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gvStudentResult)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gvRubricLevel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -462,5 +488,7 @@ namespace ProjectMids
         private System.Windows.Forms.ComboBox cboRubricLevel;
         private System.Windows.Forms.ComboBox cboStudentId;
         private System.Windows.Forms.ComboBox cboComponentId;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.DataGridView gvRubricLevel;
     }
 }

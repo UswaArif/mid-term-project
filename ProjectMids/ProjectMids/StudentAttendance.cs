@@ -172,6 +172,7 @@ namespace ProjectMids
             {
                 var con = Configuration.getInstance().getConnection();
                 SqlCommand cmd1 = new SqlCommand("Select COUNT(*) from StudentAttendance where AttendanceId = @AttendanceId AND StudentId = @StudentId", con);
+              
                 cmd1.Parameters.AddWithValue("@AttendanceId", cboAttendanceId.Text);
                 cmd1.Parameters.AddWithValue("@StudentId", txtStudentID.Text);
 

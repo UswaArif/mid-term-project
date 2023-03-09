@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
+
 namespace ProjectMids
 {
     public partial class StudentResult : Form
@@ -71,16 +72,29 @@ namespace ProjectMids
         private void btnInsert_Click(object sender, EventArgs e)
         {
             var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("Insert into StudentResult values (@StudentId, @AssessmentComponentId, @RubricMeasurementId, @EvaluationDate)", con);
+            SqlCommand cmd1 = new SqlCommand("Select COUNT(*) From StudentResult where StudentId = @StudentId AND AssessmentComponentId = @AssessmentComponentId AND RubricMeasurementId = @RubricMeasurementId", con);
+            cmd1.Parameters.AddWithValue("@StudentId", cboStudentId.Text);
+            cmd1.Parameters.AddWithValue("@AssessmentComponentId", cboComponentId.Text);
+            cmd1.Parameters.AddWithValue("@RubricMeasurementId", cboRubricLevel.Text);
+            int dataCount = (int)cmd1.ExecuteScalar();
 
-            cmd.Parameters.AddWithValue("@StudentId", cboStudentId.Text);
-            cmd.Parameters.AddWithValue("@AssessmentComponentId", cboComponentId.Text);
-            cmd.Parameters.AddWithValue("@RubricMeasurementId", cboRubricLevel.Text);
-            cmd.Parameters.AddWithValue("@EvaluationDate", dateTimePicker1.Value);
+            if (dataCount > 0)
+            {
+                MessageBox.Show("This data has already present!");
+            }
 
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Successfully saved");
-           
+            else
+            {
+                SqlCommand cmd = new SqlCommand("Insert into StudentResult values (@StudentId, @AssessmentComponentId, @RubricMeasurementId, @EvaluationDate)", con);
+
+                cmd.Parameters.AddWithValue("@StudentId", cboStudentId.Text);
+                cmd.Parameters.AddWithValue("@AssessmentComponentId", cboComponentId.Text);
+                cmd.Parameters.AddWithValue("@RubricMeasurementId", cboRubricLevel.Text);
+                cmd.Parameters.AddWithValue("@EvaluationDate", dateTimePicker1.Value);
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Successfully saved");
+            }                     
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -89,6 +103,12 @@ namespace ProjectMids
             {
                 gvStudentResult.Rows.RemoveAt(item.Index);
             }
+            MessageBox.Show("Successfully Deleted");*/
+            /*var con = Configuration.getInstance().getConnection();
+            SqlCommand cmd = new SqlCommand("DELETE FROM StudentResult WHERE @StudentId = StudentId", con);
+            cmd.Parameters.AddWithValue("@StudentId", cboStudentId.Text);
+
+            cmd.ExecuteNonQuery();
             MessageBox.Show("Successfully Deleted");*/
         }
 
@@ -139,7 +159,6 @@ namespace ProjectMids
                 cboComponentId.Text = row.Cells["AssessmentComponentId"].Value.ToString();
                 cboRubricLevel.Text = row.Cells["RubricMeasurementId"].Value.ToString();
                 dateTimePicker1.Text = row.Cells["EvaluationDate"].Value.ToString();
-
             }
         }
 
@@ -210,6 +229,26 @@ namespace ProjectMids
             cboRubricLevel.DataSource = new BindingSource(uniqueItems, null);
             cboStudentId.DataSource = new BindingSource(uniqueStudentItems, null);
             cboComponentId.DataSource = new BindingSource(uniqueComponentId, null);
+
+            var con = Configuration.getInstance().getConnection();
+            SqlCommand cmd = new SqlCommand("Select * from RubricLevel", con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            gvRubricLevel.DataSource = dt;
+        }
+
+        private void gvRubricLevel_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.gvRubricLevel.Rows[e.RowIndex];
+
+                //cboStudentId.Text = row.Cells["StudentId"].Value.ToString();
+                //cboComponentId.Text = row.Cells["AssessmentComponentId"].Value.ToString();
+                //cboRubricLevel.Text = row.Cells["RubricMeasurementId"].Value.ToString();
+                //dateTimePicker1.Text = row.Cells["EvaluationDate"].Value.ToString();
+            }
         }
     }
 }

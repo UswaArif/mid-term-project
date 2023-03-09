@@ -63,6 +63,12 @@ namespace ProjectMids
                 gvRubricLevel.Rows.RemoveAt(item.Index);
             }
             MessageBox.Show("Successfully Deleted");*/
+            var con = Configuration.getInstance().getConnection();
+            SqlCommand cmd = new SqlCommand("DELETE FROM RubricLevel WHERE @Id = Id", con);
+            cmd.Parameters.AddWithValue("@Id", txtID.Text);
+
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Successfully Deleted");
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

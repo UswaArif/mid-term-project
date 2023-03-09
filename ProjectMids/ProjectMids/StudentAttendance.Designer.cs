@@ -225,7 +225,7 @@ namespace ProjectMids
             this.btnInsert.TabIndex = 9;
             this.btnInsert.Text = "Insert";
             this.btnInsert.UseVisualStyleBackColor = false;
-            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
+            
             // 
             // btnDelete
             // 
@@ -239,7 +239,7 @@ namespace ProjectMids
             this.btnDelete.TabIndex = 10;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            
             // 
             // btnSearch
             // 
@@ -253,7 +253,7 @@ namespace ProjectMids
             this.btnSearch.TabIndex = 11;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            
             // 
             // btnUpdate
             // 
@@ -267,7 +267,7 @@ namespace ProjectMids
             this.btnUpdate.TabIndex = 12;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            
             // 
             // panel4
             // 

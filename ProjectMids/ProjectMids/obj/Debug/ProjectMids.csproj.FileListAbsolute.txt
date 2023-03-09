@@ -18,3 +18,13 @@ D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectM
 D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.Assessment.resources
 D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.AssessmentComponent.resources
 D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.StudentResult.resources
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\bin\Debug\BouncyCastle.Crypto.dll
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\bin\Debug\itextsharp.dll
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\bin\Debug\itextsharp.xml
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.csproj.CopyComplete
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.Report.resources
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.ReportMenu.resources
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.CLOWiseReport.resources
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.AssessmentReport.resources
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.StudentResultReport.resources
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.StudentAttendanceReport.resources
