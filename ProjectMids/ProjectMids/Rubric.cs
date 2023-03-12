@@ -68,15 +68,6 @@ namespace ProjectMids
             }           
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            /*foreach (DataGridViewRow item in this.gvRubric.SelectedRows)
-            {
-                gvRubric.Rows.RemoveAt(item.Index);
-            }
-            MessageBox.Show("Successfully Deleted");*/
-        }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtID.Text) == false)
@@ -103,7 +94,7 @@ namespace ProjectMids
             {
                 var con = Configuration.getInstance().getConnection();
 
-                SqlCommand cmd = new SqlCommand("Update Rubric SET Id = @Id, Details = @Details, CloId= @CloId WHERE @Id = Id", con);
+                SqlCommand cmd = new SqlCommand("Update Rubric SET Details = @Details, CloId= @CloId WHERE @Id = Id", con);
                 cmd.Parameters.AddWithValue("@Id", txtID.Text);
                 cmd.Parameters.AddWithValue("@Details", txtDetails.Text);
                 cmd.Parameters.AddWithValue("@CloId", cboCLoId.Text);

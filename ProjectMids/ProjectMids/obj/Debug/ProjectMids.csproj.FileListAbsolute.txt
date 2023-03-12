@@ -28,3 +28,4 @@ D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectM
 D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.AssessmentReport.resources
 D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.StudentResultReport.resources
 D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.StudentAttendanceReport.resources
+D:\4th Semester\MidProject\2021-cs-77\ProjectMids\ProjectMids\obj\Debug\ProjectMids.AttendanceUpdate.resources

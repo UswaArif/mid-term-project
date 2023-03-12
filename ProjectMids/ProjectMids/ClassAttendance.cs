@@ -70,25 +70,22 @@ namespace ProjectMids
 
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            /*var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("DELETE FROM ClassAttendance WHERE @StudentId = StudentId", con);
-            cmd.Parameters.AddWithValue("@StudentId", txtStudentID.Text);
-
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Successfully Deleted");*/
-        }
-
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("Update ClassAttendance SET AttendanceDate = @AttendanceDate WHERE @Id = Id", con);
-            cmd.Parameters.AddWithValue("@Id", txtAttendanceId.Text);
-            cmd.Parameters.AddWithValue("@AttendanceDate", dateTimePicker1.Value);
+            if (string.IsNullOrEmpty(txtAttendanceId.Text) == false)
+            {
+                var con = Configuration.getInstance().getConnection();
+                SqlCommand cmd = new SqlCommand("Update ClassAttendance SET AttendanceDate = @AttendanceDate WHERE @Id = Id", con);
+                cmd.Parameters.AddWithValue("@Id", txtAttendanceId.Text);
+                cmd.Parameters.AddWithValue("@AttendanceDate", dateTimePicker1.Value);
 
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Successfully Updated");
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Successfully Updated");
+            }
+            else
+            {
+                MessageBox.Show("Enter Attendance Id to Update.");
+            }
         }
 
         private void btnShow_Click(object sender, EventArgs e)
@@ -142,7 +139,13 @@ namespace ProjectMids
                 {
                     if (c is TextBox)
                         ((TextBox)c).Clear();
+                    else if (c is DateTimePicker)
+                    {
+                        ((DateTimePicker)c).Value = DateTime.Now; 
+                    }
                 }
+
+                
             }
             catch (Exception ex)
             {

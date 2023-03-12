@@ -59,15 +59,6 @@ namespace ProjectMids
             
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            /*foreach (DataGridViewRow item in this.gvAssessmentComponent.SelectedRows)
-            {
-                gvAssessmentComponent.Rows.RemoveAt(item.Index);
-            }
-            MessageBox.Show("Successfully Deleted");*/
-        }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtName.Text) == false)
@@ -197,6 +188,10 @@ namespace ProjectMids
                 {
                     if (c is TextBox)
                         ((TextBox)c).Clear();
+                    else if (c is DateTimePicker)
+                    {
+                        ((DateTimePicker)c).Value = DateTime.Now;
+                    }
                 }
                 foreach (Control c in tableLayoutPanel2.Controls)
                 {

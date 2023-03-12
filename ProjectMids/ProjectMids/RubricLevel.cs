@@ -56,21 +56,6 @@ namespace ProjectMids
             
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            /*foreach (DataGridViewRow item in this.gvRubricLevel.SelectedRows)
-            {
-                gvRubricLevel.Rows.RemoveAt(item.Index);
-            }
-            MessageBox.Show("Successfully Deleted");*/
-            var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("DELETE FROM RubricLevel WHERE @Id = Id", con);
-            cmd.Parameters.AddWithValue("@Id", txtID.Text);
-
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Successfully Deleted");
-        }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtID.Text) == false)
@@ -217,6 +202,18 @@ namespace ProjectMids
 
             cboRubricId.DataSource = new BindingSource(uniqueItems, null);
 
+        }
+
+        private void txtMeasurementLevel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= '1' && e.KeyChar <= '4' || e.KeyChar == ((char)Keys.Back)) //The  character represents a backspace
+            {
+                e.Handled = false; //Do not reject the input
+            }
+            else
+            {
+                e.Handled = true; //Reject the input
+            }
         }
     }
 }

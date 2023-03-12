@@ -42,7 +42,6 @@ namespace ProjectMids
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -74,8 +73,7 @@ namespace ProjectMids
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.BackColor = System.Drawing.Color.LightGray;
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.lblStudentMenu);
             this.panel1.Location = new System.Drawing.Point(1, 0);
@@ -94,7 +92,7 @@ namespace ProjectMids
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Location = new System.Drawing.Point(-1, 60);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(121, 394);
+            this.panel2.Size = new System.Drawing.Size(121, 396);
             this.panel2.TabIndex = 5;
             // 
             // pictureBox3
@@ -103,7 +101,7 @@ namespace ProjectMids
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox3.Location = new System.Drawing.Point(10, 297);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(72, 35);
+            this.pictureBox3.Size = new System.Drawing.Size(72, 37);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 5;
             this.pictureBox3.TabStop = false;
@@ -146,21 +144,21 @@ namespace ProjectMids
             this.lblStudentMenu.AutoSize = true;
             this.lblStudentMenu.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStudentMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblStudentMenu.Location = new System.Drawing.Point(173, 7);
+            this.lblStudentMenu.Location = new System.Drawing.Point(174, 7);
             this.lblStudentMenu.Name = "lblStudentMenu";
-            this.lblStudentMenu.Size = new System.Drawing.Size(259, 36);
+            this.lblStudentMenu.Size = new System.Drawing.Size(277, 36);
             this.lblStudentMenu.TabIndex = 0;
-            this.lblStudentMenu.Text = "Assessment Menu";
+            this.lblStudentMenu.Text = "Assessment Record";
             // 
             // btnUpdate
             // 
-            this.btnUpdate.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnUpdate.Location = new System.Drawing.Point(300, 3);
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.Location = new System.Drawing.Point(243, 3);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(93, 39);
+            this.btnUpdate.Size = new System.Drawing.Size(114, 39);
             this.btnUpdate.TabIndex = 12;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -168,13 +166,13 @@ namespace ProjectMids
             // 
             // btnShow
             // 
-            this.btnShow.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.btnShow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnShow.Location = new System.Drawing.Point(399, 3);
+            this.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnShow.ForeColor = System.Drawing.Color.White;
+            this.btnShow.Location = new System.Drawing.Point(363, 3);
             this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(93, 39);
+            this.btnShow.Size = new System.Drawing.Size(114, 39);
             this.btnShow.TabIndex = 13;
             this.btnShow.Text = "Show";
             this.btnShow.UseVisualStyleBackColor = false;
@@ -184,19 +182,18 @@ namespace ProjectMids
             // 
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 6;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.Controls.Add(this.btnReset, 5, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnShow, 4, 0);
+            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.btnReset, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnShow, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnInsert, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnUpdate, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnDelete, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnSearch, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnUpdate, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnSearch, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(39, 176);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
@@ -206,13 +203,13 @@ namespace ProjectMids
             // 
             // btnReset
             // 
-            this.btnReset.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.btnReset.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReset.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnReset.Location = new System.Drawing.Point(498, 3);
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnReset.ForeColor = System.Drawing.Color.White;
+            this.btnReset.Location = new System.Drawing.Point(483, 3);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(99, 39);
+            this.btnReset.Size = new System.Drawing.Size(114, 39);
             this.btnReset.TabIndex = 26;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
@@ -220,41 +217,27 @@ namespace ProjectMids
             // 
             // btnInsert
             // 
-            this.btnInsert.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnInsert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.btnInsert.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInsert.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnInsert.ForeColor = System.Drawing.Color.White;
             this.btnInsert.Location = new System.Drawing.Point(3, 3);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(93, 39);
+            this.btnInsert.Size = new System.Drawing.Size(114, 39);
             this.btnInsert.TabIndex = 9;
             this.btnInsert.Text = "Insert";
             this.btnInsert.UseVisualStyleBackColor = false;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnDelete.Location = new System.Drawing.Point(102, 3);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(93, 39);
-            this.btnDelete.TabIndex = 10;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
             // btnSearch
             // 
-            this.btnSearch.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.btnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnSearch.Location = new System.Drawing.Point(201, 3);
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Location = new System.Drawing.Point(123, 3);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(93, 39);
+            this.btnSearch.Size = new System.Drawing.Size(114, 39);
             this.btnSearch.TabIndex = 11;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -263,9 +246,9 @@ namespace ProjectMids
             // btnBack
             // 
             this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBack.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.ForeColor = System.Drawing.Color.Navy;
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBack.ForeColor = System.Drawing.Color.White;
             this.btnBack.Location = new System.Drawing.Point(609, 413);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 36);
@@ -288,6 +271,7 @@ namespace ProjectMids
             // gvAssessment
             // 
             this.gvAssessment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gvAssessment.BackgroundColor = System.Drawing.SystemColors.ControlDark;
             this.gvAssessment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvAssessment.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gvAssessment.Location = new System.Drawing.Point(0, 0);
@@ -430,6 +414,7 @@ namespace ProjectMids
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(696, 461);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.panel4);
@@ -468,7 +453,6 @@ namespace ProjectMids
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnInsert;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView gvAssessment;

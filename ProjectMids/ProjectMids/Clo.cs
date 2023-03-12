@@ -40,16 +40,7 @@ namespace ProjectMids
                 MessageBox.Show("Successfully saved");
             }
             
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            foreach (DataGridViewRow item in this.gvCLO.SelectedRows)
-            {
-                gvCLO.Rows.RemoveAt(item.Index);
-            }
-            MessageBox.Show("Successfully Deleted");
-        }
+        }      
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -85,7 +76,7 @@ namespace ProjectMids
                     cmd.Parameters.AddWithValue("@DateUpdated", dateTimePicker2.Value);
 
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Successfully updated");
+                    MessageBox.Show("Successfully Updated");
                 }
                 else
                 {
@@ -175,6 +166,10 @@ namespace ProjectMids
                 {
                     if (c is TextBox)
                         ((TextBox)c).Clear();
+                    else if (c is DateTimePicker)
+                    {
+                        ((DateTimePicker)c).Value = DateTime.Now;
+                    }
                 }
             }
             catch (Exception ex)

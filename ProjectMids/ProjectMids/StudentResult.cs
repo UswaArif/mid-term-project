@@ -99,17 +99,19 @@ namespace ProjectMids
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            /*foreach (DataGridViewRow item in this.gvStudentResult.SelectedRows)
+            if (string.IsNullOrEmpty(cboStudentId.Text) == false)
             {
-                gvStudentResult.Rows.RemoveAt(item.Index);
-            }
-            MessageBox.Show("Successfully Deleted");*/
-            /*var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("DELETE FROM StudentResult WHERE @StudentId = StudentId", con);
-            cmd.Parameters.AddWithValue("@StudentId", cboStudentId.Text);
+                var con = Configuration.getInstance().getConnection();
+                SqlCommand cmd = new SqlCommand("DELETE FROM StudentResult WHERE @StudentId = StudentId", con);
+                cmd.Parameters.AddWithValue("@StudentId", cboStudentId.Text);
 
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Successfully Deleted");*/
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Successfully Deleted");
+            }
+            else
+            {
+                MessageBox.Show("Enter Student Id to Delete.");
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -128,7 +130,7 @@ namespace ProjectMids
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("Update StudentResult SET StudentId = @StudentId, AssessmentComponentId = @AssessmentComponentId, RubricMeasurementId = @RubricMeasurementId, EvaluationDate = @EvaluationDate WHERE @StudentId = StudentId", con);
+            SqlCommand cmd = new SqlCommand("Update StudentResult SET  AssessmentComponentId = @AssessmentComponentId, RubricMeasurementId = @RubricMeasurementId, EvaluationDate = @EvaluationDate WHERE @StudentId = StudentId", con);
             cmd.Parameters.AddWithValue("@StudentId", cboStudentId.Text);
             cmd.Parameters.AddWithValue("@AssessmentComponentId", cboComponentId.Text);
             cmd.Parameters.AddWithValue("@RubricMeasurementId", cboRubricLevel.Text);
@@ -170,6 +172,10 @@ namespace ProjectMids
                 {
                     if (c is TextBox)
                         ((TextBox)c).Clear();
+                    else if (c is DateTimePicker)
+                    {
+                        ((DateTimePicker)c).Value = DateTime.Now;
+                    }
                 }
                 foreach (Control c in tableLayoutPanel1.Controls)
                 {
@@ -244,10 +250,7 @@ namespace ProjectMids
             {
                 DataGridViewRow row = this.gvRubricLevel.Rows[e.RowIndex];
 
-                //cboStudentId.Text = row.Cells["StudentId"].Value.ToString();
-                //cboComponentId.Text = row.Cells["AssessmentComponentId"].Value.ToString();
-                //cboRubricLevel.Text = row.Cells["RubricMeasurementId"].Value.ToString();
-                //dateTimePicker1.Text = row.Cells["EvaluationDate"].Value.ToString();
+                cboRubricLevel.Text = row.Cells["Id"].Value.ToString();
             }
         }
     }

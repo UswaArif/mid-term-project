@@ -31,46 +31,43 @@ namespace ProjectMids
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblStudentManagement = new System.Windows.Forms.Label();
             this.lblSystem = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblStudentMenu = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnShow = new System.Windows.Forms.Button();
-            this.btnInsert = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.gvStudentAttendance = new System.Windows.Forms.DataGridView();
+            this.Present = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Absent = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Late = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Leave = new System.Windows.Forms.DataGridViewButtonColumn();
             this.txtStudentID = new System.Windows.Forms.TextBox();
             this.lblStudentId = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblAttendanceID = new System.Windows.Forms.Label();
             this.cboAttendanceId = new System.Windows.Forms.ComboBox();
-            this.Present = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Absent = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Late = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Leave = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvStudentAttendance)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.BackColor = System.Drawing.Color.LightGray;
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.lblStudentMenu);
             this.panel1.Location = new System.Drawing.Point(1, 1);
@@ -89,19 +86,8 @@ namespace ProjectMids
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Location = new System.Drawing.Point(-1, 60);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(121, 394);
+            this.panel2.Size = new System.Drawing.Size(121, 396);
             this.panel2.TabIndex = 5;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox3.Location = new System.Drawing.Point(10, 297);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(72, 35);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 5;
-            this.pictureBox3.TabStop = false;
             // 
             // lblStudentManagement
             // 
@@ -125,34 +111,24 @@ namespace ProjectMids
             this.lblSystem.Size = new System.Drawing.Size(0, 13);
             this.lblSystem.TabIndex = 5;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.LightGray;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 15);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(115, 116);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            // 
             // lblStudentMenu
             // 
             this.lblStudentMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblStudentMenu.AutoSize = true;
             this.lblStudentMenu.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStudentMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblStudentMenu.Location = new System.Drawing.Point(100, 7);
+            this.lblStudentMenu.Location = new System.Drawing.Point(169, 7);
             this.lblStudentMenu.Name = "lblStudentMenu";
-            this.lblStudentMenu.Size = new System.Drawing.Size(368, 36);
+            this.lblStudentMenu.Size = new System.Drawing.Size(287, 36);
             this.lblStudentMenu.TabIndex = 0;
-            this.lblStudentMenu.Text = "Attendance Record Menu";
+            this.lblStudentMenu.Text = "Attendance Record ";
             // 
             // btnBack
             // 
             this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBack.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.ForeColor = System.Drawing.Color.Navy;
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBack.ForeColor = System.Drawing.Color.White;
             this.btnBack.Location = new System.Drawing.Point(609, 413);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 36);
@@ -165,19 +141,17 @@ namespace ProjectMids
             // 
             this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 6;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.Controls.Add(this.btnReset, 5, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnShow, 4, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnInsert, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnDelete, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnSearch, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnUpdate, 3, 0);
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.btnReset, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnShow, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnSearch, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnUpdate, 1, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(26, 189);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -187,13 +161,13 @@ namespace ProjectMids
             // 
             // btnReset
             // 
-            this.btnReset.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.btnReset.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReset.ForeColor = System.Drawing.Color.Navy;
-            this.btnReset.Location = new System.Drawing.Point(503, 3);
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnReset.ForeColor = System.Drawing.Color.White;
+            this.btnReset.Location = new System.Drawing.Point(456, 3);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(98, 40);
+            this.btnReset.Size = new System.Drawing.Size(145, 40);
             this.btnReset.TabIndex = 15;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
@@ -201,73 +175,45 @@ namespace ProjectMids
             // 
             // btnShow
             // 
-            this.btnShow.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.btnShow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShow.ForeColor = System.Drawing.Color.Navy;
-            this.btnShow.Location = new System.Drawing.Point(403, 3);
+            this.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnShow.ForeColor = System.Drawing.Color.White;
+            this.btnShow.Location = new System.Drawing.Point(305, 3);
             this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(94, 40);
+            this.btnShow.Size = new System.Drawing.Size(145, 40);
             this.btnShow.TabIndex = 13;
             this.btnShow.Text = "Show";
             this.btnShow.UseVisualStyleBackColor = false;
             this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
-            // btnInsert
-            // 
-            this.btnInsert.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnInsert.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInsert.ForeColor = System.Drawing.Color.Navy;
-            this.btnInsert.Location = new System.Drawing.Point(3, 3);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(94, 40);
-            this.btnInsert.TabIndex = 9;
-            this.btnInsert.Text = "Insert";
-            this.btnInsert.UseVisualStyleBackColor = false;
-            
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.ForeColor = System.Drawing.Color.Navy;
-            this.btnDelete.Location = new System.Drawing.Point(103, 3);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(94, 40);
-            this.btnDelete.TabIndex = 10;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            
-            // 
             // btnSearch
             // 
-            this.btnSearch.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.btnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.ForeColor = System.Drawing.Color.Navy;
-            this.btnSearch.Location = new System.Drawing.Point(203, 3);
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Location = new System.Drawing.Point(3, 3);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(94, 40);
+            this.btnSearch.Size = new System.Drawing.Size(145, 40);
             this.btnSearch.TabIndex = 11;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
-            
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click_1);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.ForeColor = System.Drawing.Color.Navy;
-            this.btnUpdate.Location = new System.Drawing.Point(303, 3);
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.Location = new System.Drawing.Point(154, 3);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(94, 40);
+            this.btnUpdate.Size = new System.Drawing.Size(145, 40);
             this.btnUpdate.TabIndex = 12;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
-            
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click_1);
             // 
             // panel4
             // 
@@ -283,6 +229,7 @@ namespace ProjectMids
             // gvStudentAttendance
             // 
             this.gvStudentAttendance.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gvStudentAttendance.BackgroundColor = System.Drawing.SystemColors.ControlDark;
             this.gvStudentAttendance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvStudentAttendance.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Present,
@@ -295,6 +242,35 @@ namespace ProjectMids
             this.gvStudentAttendance.Size = new System.Drawing.Size(564, 223);
             this.gvStudentAttendance.TabIndex = 0;
             this.gvStudentAttendance.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvStudentAttendance_CellContentClick);
+            // 
+            // Present
+            // 
+            this.Present.HeaderText = "Present";
+            this.Present.Name = "Present";
+            this.Present.ReadOnly = true;
+            this.Present.Text = "Present";
+            this.Present.UseColumnTextForButtonValue = true;
+            // 
+            // Absent
+            // 
+            this.Absent.HeaderText = "Absent";
+            this.Absent.Name = "Absent";
+            this.Absent.Text = "Absent";
+            this.Absent.UseColumnTextForButtonValue = true;
+            // 
+            // Late
+            // 
+            this.Late.HeaderText = "Late";
+            this.Late.Name = "Late";
+            this.Late.Text = "Late";
+            this.Late.UseColumnTextForButtonValue = true;
+            // 
+            // Leave
+            // 
+            this.Leave.HeaderText = "Leave";
+            this.Leave.Name = "Leave";
+            this.Leave.Text = "Leave";
+            this.Leave.UseColumnTextForButtonValue = true;
             // 
             // txtStudentID
             // 
@@ -355,39 +331,32 @@ namespace ProjectMids
             this.cboAttendanceId.Size = new System.Drawing.Size(248, 21);
             this.cboAttendanceId.TabIndex = 11;
             // 
-            // Present
+            // pictureBox3
             // 
-            this.Present.HeaderText = "Present";
-            this.Present.Name = "Present";
-            this.Present.ReadOnly = true;
-            this.Present.Text = "Present";
-            this.Present.UseColumnTextForButtonValue = true;
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox3.Location = new System.Drawing.Point(10, 297);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(72, 37);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 5;
+            this.pictureBox3.TabStop = false;
             // 
-            // Absent
+            // pictureBox2
             // 
-            this.Absent.HeaderText = "Absent";
-            this.Absent.Name = "Absent";
-            this.Absent.Text = "Absent";
-            this.Absent.UseColumnTextForButtonValue = true;
-            // 
-            // Late
-            // 
-            this.Late.HeaderText = "Late";
-            this.Late.Name = "Late";
-            this.Late.Text = "Late";
-            this.Late.UseColumnTextForButtonValue = true;
-            // 
-            // Leave
-            // 
-            this.Leave.HeaderText = "Leave";
-            this.Leave.Name = "Leave";
-            this.Leave.Text = "Leave";
-            this.Leave.UseColumnTextForButtonValue = true;
+            this.pictureBox2.BackColor = System.Drawing.Color.LightGray;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 15);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(115, 116);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
             // 
             // StudentAttendance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(696, 461);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel4);
@@ -401,13 +370,13 @@ namespace ProjectMids
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gvStudentAttendance)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -425,8 +394,6 @@ namespace ProjectMids
         private System.Windows.Forms.Button btnShow;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView gvStudentAttendance;
         private System.Windows.Forms.TextBox txtStudentID;

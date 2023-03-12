@@ -31,6 +31,8 @@ namespace ProjectMids
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnResult = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
@@ -49,21 +51,19 @@ namespace ProjectMids
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panelChildForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel2.BackColor = System.Drawing.Color.Gray;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.panel2.Controls.Add(this.pictureBox3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.btnExit);
@@ -79,18 +79,41 @@ namespace ProjectMids
             this.panel2.Controls.Add(this.btnClassAttendance);
             this.panel2.Controls.Add(this.btnRubric);
             this.panel2.Controls.Add(this.btnCLO);
+            this.panel2.ForeColor = System.Drawing.Color.Coral;
             this.panel2.Location = new System.Drawing.Point(1, 45);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(174, 535);
             this.panel2.TabIndex = 3;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(3, 12);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(33, 33);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 1;
+            this.pictureBox3.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label2.Location = new System.Drawing.Point(38, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(111, 24);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "DashBoard";
+            // 
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.BackColor = System.Drawing.Color.Gray;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.ForeColor = System.Drawing.Color.Navy;
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExit.ForeColor = System.Drawing.Color.AliceBlue;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExit.Location = new System.Drawing.Point(0, 493);
@@ -105,9 +128,9 @@ namespace ProjectMids
             // 
             this.btnResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnResult.BackColor = System.Drawing.Color.Gray;
-            this.btnResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnResult.ForeColor = System.Drawing.Color.Navy;
+            this.btnResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.btnResult.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnResult.ForeColor = System.Drawing.Color.White;
             this.btnResult.Image = ((System.Drawing.Image)(resources.GetObject("btnResult.Image")));
             this.btnResult.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnResult.Location = new System.Drawing.Point(1, 413);
@@ -122,10 +145,10 @@ namespace ProjectMids
             // 
             this.btnReport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnReport.BackColor = System.Drawing.Color.Gray;
+            this.btnReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.btnReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnReport.ForeColor = System.Drawing.Color.White;
             this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
             this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnReport.Location = new System.Drawing.Point(0, 453);
@@ -149,9 +172,9 @@ namespace ProjectMids
             // 
             this.btnRubricLevel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRubricLevel.BackColor = System.Drawing.Color.Gray;
-            this.btnRubricLevel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRubricLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnRubricLevel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.btnRubricLevel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRubricLevel.ForeColor = System.Drawing.Color.White;
             this.btnRubricLevel.Image = ((System.Drawing.Image)(resources.GetObject("btnRubricLevel.Image")));
             this.btnRubricLevel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRubricLevel.Location = new System.Drawing.Point(0, 253);
@@ -166,9 +189,9 @@ namespace ProjectMids
             // 
             this.btnLookUp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLookUp.BackColor = System.Drawing.Color.Gray;
-            this.btnLookUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLookUp.ForeColor = System.Drawing.Color.Navy;
+            this.btnLookUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.btnLookUp.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLookUp.ForeColor = System.Drawing.Color.White;
             this.btnLookUp.Image = ((System.Drawing.Image)(resources.GetObject("btnLookUp.Image")));
             this.btnLookUp.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLookUp.Location = new System.Drawing.Point(0, 373);
@@ -183,13 +206,13 @@ namespace ProjectMids
             // 
             this.btnStudent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStudent.BackColor = System.Drawing.Color.Gray;
+            this.btnStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.btnStudent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStudent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnStudent.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnStudent.ForeColor = System.Drawing.Color.White;
             this.btnStudent.Image = ((System.Drawing.Image)(resources.GetObject("btnStudent.Image")));
             this.btnStudent.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnStudent.Location = new System.Drawing.Point(0, 53);
+            this.btnStudent.Location = new System.Drawing.Point(1, 53);
             this.btnStudent.Name = "btnStudent";
             this.btnStudent.Size = new System.Drawing.Size(171, 39);
             this.btnStudent.TabIndex = 22;
@@ -201,9 +224,9 @@ namespace ProjectMids
             // 
             this.btnComponent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnComponent.BackColor = System.Drawing.Color.Gray;
-            this.btnComponent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnComponent.ForeColor = System.Drawing.Color.Navy;
+            this.btnComponent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.btnComponent.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnComponent.ForeColor = System.Drawing.Color.White;
             this.btnComponent.Image = ((System.Drawing.Image)(resources.GetObject("btnComponent.Image")));
             this.btnComponent.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnComponent.Location = new System.Drawing.Point(0, 293);
@@ -218,9 +241,8 @@ namespace ProjectMids
             // 
             this.btnStudentAttendance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStudentAttendance.BackColor = System.Drawing.Color.Gray;
-            this.btnStudentAttendance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStudentAttendance.ForeColor = System.Drawing.Color.Navy;
+            this.btnStudentAttendance.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnStudentAttendance.ForeColor = System.Drawing.Color.White;
             this.btnStudentAttendance.Image = ((System.Drawing.Image)(resources.GetObject("btnStudentAttendance.Image")));
             this.btnStudentAttendance.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnStudentAttendance.Location = new System.Drawing.Point(0, 93);
@@ -235,9 +257,9 @@ namespace ProjectMids
             // 
             this.btnAssessment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAssessment.BackColor = System.Drawing.Color.Gray;
-            this.btnAssessment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAssessment.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnAssessment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.btnAssessment.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAssessment.ForeColor = System.Drawing.Color.White;
             this.btnAssessment.Image = ((System.Drawing.Image)(resources.GetObject("btnAssessment.Image")));
             this.btnAssessment.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAssessment.Location = new System.Drawing.Point(0, 333);
@@ -252,9 +274,9 @@ namespace ProjectMids
             // 
             this.btnClassAttendance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClassAttendance.BackColor = System.Drawing.Color.Gray;
-            this.btnClassAttendance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClassAttendance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnClassAttendance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.btnClassAttendance.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClassAttendance.ForeColor = System.Drawing.Color.White;
             this.btnClassAttendance.Image = ((System.Drawing.Image)(resources.GetObject("btnClassAttendance.Image")));
             this.btnClassAttendance.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnClassAttendance.Location = new System.Drawing.Point(0, 133);
@@ -269,9 +291,9 @@ namespace ProjectMids
             // 
             this.btnRubric.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRubric.BackColor = System.Drawing.Color.Gray;
-            this.btnRubric.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRubric.ForeColor = System.Drawing.Color.Navy;
+            this.btnRubric.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.btnRubric.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRubric.ForeColor = System.Drawing.Color.White;
             this.btnRubric.Image = ((System.Drawing.Image)(resources.GetObject("btnRubric.Image")));
             this.btnRubric.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRubric.Location = new System.Drawing.Point(0, 213);
@@ -286,9 +308,9 @@ namespace ProjectMids
             // 
             this.btnCLO.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCLO.BackColor = System.Drawing.Color.Gray;
-            this.btnCLO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCLO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnCLO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.btnCLO.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCLO.ForeColor = System.Drawing.Color.White;
             this.btnCLO.Image = ((System.Drawing.Image)(resources.GetObject("btnCLO.Image")));
             this.btnCLO.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCLO.Location = new System.Drawing.Point(0, 173);
@@ -304,6 +326,7 @@ namespace ProjectMids
             this.panelChildForm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelChildForm.BackColor = System.Drawing.Color.Lavender;
             this.panelChildForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelChildForm.Controls.Add(this.pictureBox1);
             this.panelChildForm.Location = new System.Drawing.Point(178, 45);
@@ -326,7 +349,7 @@ namespace ProjectMids
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.BackColor = System.Drawing.Color.MediumBlue;
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -356,27 +379,6 @@ namespace ProjectMids
             this.label1.TabIndex = 0;
             this.label1.Text = "Student Management System";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label2.Location = new System.Drawing.Point(38, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 24);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "DashBoard";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(3, 12);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(33, 33);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -392,12 +394,12 @@ namespace ProjectMids
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panelChildForm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
